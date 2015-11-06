@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
-var LinkSchema = new mongoose.Schema ({
+var ListSchema = new mongoose.Schema ({
 	title: String,
 	category: String,
-	url: String,
+	links: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Link'
+	}],
 	createdBy: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User'
