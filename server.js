@@ -21,6 +21,9 @@
 
     // Base Setup =================
     var User = require('./models/user');
+    // var User = require('./models/groups');
+    // var User = require('./models/links');
+    // var User = require('./models/projects');
 
     // routes ======================================================================
     // api ---------------------------------------------------------------------
@@ -41,23 +44,27 @@
     // create  and send back after creation
     app.post('/api/users', function(req, res) {
         // create, information comes from AJAX request from Angular
-        User.create({
-            username : req.body.username,
-            email : req.body.email,
-            password : req.body.password,
-            done : false
-        }, function(err, user) {
-            if (err)
-                res.send(err);
+        console.log(req.body);
+        // User.create({
+        //     username : req.body.username,
+        //     email : req.body.email,
+        //     password : req.body.password,
+        //     subscriptions : [req.body.subscriptions],
+        //     links : [req.body.links],
+        //     list : [req.body.list],
+        //     projects : [req.body.projects],
+        //     done : false
+        // }, function(err, user) {
+        //     if (err)
+        //         res.send(err);
 
-            // get and return all after you create another
-            User.find(function(err, users) {
-                if (err)
-                    res.send(err)
-                res.json(users);
-            });
-        });
-
+        //     // get and return all after you create another
+        //     User.find(function(err, users) {
+        //         if (err)
+        //             res.send(err)
+        //         res.json(users);
+        //     });
+        // });
     });
 
     // delete

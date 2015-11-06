@@ -4,11 +4,11 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User', {
     username : String,
     email : String,
-    password : String
-    // subscriptions : Array,
-    // links : Array,
-    // list :Array,
-    // projects : Array
+    password : String,
+    subscriptions : [Number],
+    links : [Number],
+    list : [Number],
+    projects : [Number]
 });                     
 
 module.exports = mongoose.model('User', User);
