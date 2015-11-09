@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 //define model =================
-var Project = mongoose.model('Project', {
-    title : String,
-    description : String,
-    status : Boolean,
-    listSub: [{
+var User = mongoose.model('User', {
+    username : String,
+    email : String,
+    password : String,
+    listSubs: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'List'
 	}],
@@ -19,4 +19,4 @@ var Project = mongoose.model('Project', {
 	}]
 });                     
 
-module.exports = mongoose.model('Project', Project);
+module.exports = mongoose.model('User', User);

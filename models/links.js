@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var LinkSchema = new mongoose.Schema ({
+var Linker = mongoose.model('Linker', {
 	title: String,
 	category: String,
 	url: String,
@@ -8,4 +8,4 @@ var LinkSchema = new mongoose.Schema ({
 		ref: 'User'
 	}
 });
-module.exports = mongoose.model('List', ListSchema);
+module.exports = mongoose.model('Linker', Linker);
