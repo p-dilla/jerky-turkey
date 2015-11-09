@@ -1,7 +1,15 @@
-var express = require('express');
-var app = express();
-// get all 
-    app.get('/api/users', function(req, res) {
+var express  = require('express');
+var router   = express.Router();
+var User = require('../models/users');
+
+router.use(function(req, res, next) {
+  next();
+});
+
+// routes ======================================================================
+// api ---------------------------------------------------------------------
+// get all USERs
+    router.get('/api/users', function(req, res) {
 
         // use mongoose to get all in the database
         User.find(function(err, users) {
@@ -14,16 +22,30 @@ var app = express();
         });
     });
 
-    // create  and send back after creation
-    app.post('/api/users', function(req, res) {
+    // get single USER
+    router.get('/api/users/:users_id', function(req, res) {
+
+        // use mongoose to get all in the database
+        User.findById(req.params.users_id, function(err, users) {
+
+            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+            if (err)
+                res.send(err)
+
+            res.json(users); // return user in JSON format
+        });
+    });
+
+    // create USER and send back after creation
+    router.post('/api/users', function(req, res) {
         // create, information comes from AJAX request from Angular
         User.create({
             username : req.body.username,
             email : req.body.email,
             password : req.body.password,
-            listSubs : req.body.listSubs,
-            projects: req.body.projects,
-            linkers: req.body.linkers,
+            listSubs : [req.body.listSubs],
+            projects: [req.body.projects],
+            linkers: [req.body.linkers],
             done : false
         }, function(err, user) {
             if (err)
@@ -38,11 +60,11 @@ var app = express();
         });
     });
 
-    // delete
-    app.delete('/api/users/:user_id', function(req, res) {
+    // delete USER
+    router.delete('/api/users/:users_id', function(req, res) {
         User.remove({
-            _id : req.params.user_id
-        }, function(err, user) {
+            _id : req.params.users_id
+        }, function(err, users) {
             if (err)
                 res.send(err);
 
@@ -52,5 +74,31 @@ var app = express();
                     res.send(err)
                 res.json(users);
             });
+        });
+    });
+
+    //update USER
+    router.put('/api/users/:users_id', function(req, res) {
+        // use user model to find the user
+        User.findById(req.params.users_id, function(err, users) {
+
+            if (err)
+                res.send(err);
+
+            users.username = req.body.username;
+            users.email = req.body.email;
+            users.password = req.body.password;
+            users.listSubs = [req.body.listSubs];
+            users.projects = [req.body.projects];
+            users.linkers = [req.body.linkers];
+
+            // save the user
+            users.save(function(err) {
+                if (err)
+                    res.send(err);
+
+                res.json(users);
+            });
+
         });
     });
