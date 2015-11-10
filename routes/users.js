@@ -1,15 +1,10 @@
-var express  = require('express');
-var router   = express.Router();
+
 var User = require('../models/users');
-
-router.use(function(req, res, next) {
-  next();
-});
-
+module.exports = function(app) {
 // routes ======================================================================
 // api ---------------------------------------------------------------------
 // get all USERs
-    router.get('/api/users', function(req, res) {
+    app.get('/api/users', function(req, res) {
 
         // use mongoose to get all in the database
         User.find(function(err, users) {
@@ -23,7 +18,7 @@ router.use(function(req, res, next) {
     });
 
     // get single USER
-    router.get('/api/users/:users_id', function(req, res) {
+    app.get('/api/users/:users_id', function(req, res) {
 
         // use mongoose to get all in the database
         User.findById(req.params.users_id, function(err, users) {
@@ -37,7 +32,7 @@ router.use(function(req, res, next) {
     });
 
     // create USER and send back after creation
-    router.post('/api/users', function(req, res) {
+    app.post('/api/users', function(req, res) {
         // create, information comes from AJAX request from Angular
         User.create({
             username : req.body.username,
@@ -61,7 +56,7 @@ router.use(function(req, res, next) {
     });
 
     // delete USER
-    router.delete('/api/users/:users_id', function(req, res) {
+    app.delete('/api/users/:users_id', function(req, res) {
         User.remove({
             _id : req.params.users_id
         }, function(err, users) {
@@ -78,7 +73,7 @@ router.use(function(req, res, next) {
     });
 
     //update USER
-    router.put('/api/users/:users_id', function(req, res) {
+    app.put('/api/users/:users_id', function(req, res) {
         // use user model to find the user
         User.findById(req.params.users_id, function(err, users) {
 
@@ -102,3 +97,4 @@ router.use(function(req, res, next) {
 
         });
     });
+}
