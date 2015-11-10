@@ -13,9 +13,9 @@ var User = mongoose.model('User', {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Project'
 	}],
-	linkers: [{
+	weblinks: [{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Linker'
+		ref: 'Weblink'
 	}]
 });                     
 

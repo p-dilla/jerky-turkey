@@ -40,7 +40,7 @@ module.exports = function(app) {
             password : req.body.password,
             listSubs : [req.body.listSubs],
             projects: [req.body.projects],
-            linkers: [req.body.linkers],
+            weblinks: [req.body.weblinks],
             done : false
         }, function(err, user) {
             if (err)
@@ -85,7 +85,7 @@ module.exports = function(app) {
             users.password = req.body.password;
             users.listSubs = [req.body.listSubs];
             users.projects = [req.body.projects];
-            users.linkers = [req.body.linkers];
+            users.weblinks = [req.body.weblinks];
 
             // save the user
             users.save(function(err) {

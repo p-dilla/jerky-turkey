@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var List = mongoose.model('List', {
-	title: String,
+	listName: String,
 	category: String,
-	linkers: [{
+	weblinks: [{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Linker'
+		ref: 'Weblinks'
 	}],
 	createdBy: {
 		type: mongoose.Schema.Types.ObjectId,

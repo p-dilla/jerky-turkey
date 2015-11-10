@@ -8,7 +8,7 @@
     var app = module.exports = express();
     require('./routes/users')(app);
     require('./routes/lists')(app);
-    require('./routes/links')(app);
+    require('./routes/weblinks')(app);
     require('./routes/projects')(app);
 
     // configuration =================
@@ -20,11 +20,6 @@
     app.use(bodyParser.json());                                     
     app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
     app.use(methodOverride());
-
-    // Base Setup =================
-    var Project = require('./models/projects');
-    var List = require('./models/lists');
-    var Linker = require('./models/links');
 
 // application -------------------------------------------------------------
     app.get('*', function(req, res) {
