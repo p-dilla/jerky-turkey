@@ -7,4 +7,14 @@ var linkApp = angular
       url: "/",
       templateUrl: "../views/home.html"
     })
+    .state('login', {
+      url: "/login",
+      templateUrl: "../views/login.html",
+      controller: "loginController"
+    })
+    .state('register', {
+      url: "/register",
+      templateUrl: "../views/register.html",
+      controller: "registerController"
+    })
 }]);
