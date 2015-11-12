@@ -4,7 +4,7 @@ var linkApp = angular
   $urlRouterProvider.otherwise("/");
   $stateProvider
     .state('home', {
-      url: "/home",
-      templateUrl: "views/home.html"
+      url: "/",
+      templateUrl: "../views/home.html"
     })
 }]);
