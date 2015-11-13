@@ -5,6 +5,10 @@
     var morgan = require('morgan');             
     var bodyParser = require('body-parser');    
     var methodOverride = require('method-override'); 
+    var jwt = require('jsonwebtoken');
+    var config = require('./config');
+
+
     var app = module.exports = express();
     require('./routes/users')(app);
     require('./routes/lists')(app);
@@ -12,9 +16,12 @@
     require('./routes/projects')(app);
 
     // configuration =================
-    mongoose.connect('mongodb://localhost/gresource');  
+    mongoose.connect(config.database);  
+    app.set('superSecret', config.secret);
+
+    app.use(morgan('dev'));  
+    
     app.use('/', express.static(__dirname + '/../client'));
-    app.use(morgan('dev'));                                         
     app.use(bodyParser.urlencoded({'extended':'true'}));            
     app.use(bodyParser.json());                                     
     app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 

@@ -18,9 +18,9 @@
   "homepage": "https://github.com/p-dilla/jerky-turkey#readme",
   "dependencies": {
     "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.4"
-
   },
   "devDependencies": {
     "body-parser": "^1.14.1",
