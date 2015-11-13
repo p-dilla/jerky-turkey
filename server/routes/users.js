@@ -3,6 +3,25 @@ var User = require('../models/users');
 module.exports = function(app) {
 // routes ======================================================================
 // api ---------------------------------------------------------------------
+
+//test data ============
+    app.get('/api/setup', function(req, res) {
+
+      // create a sample user
+      var nick = new User({ 
+        username: 'Nick Cerminara', 
+        password: 'password'
+      });
+
+      // save the sample user
+      nick.save(function(err) {
+        if (err) throw err;
+
+        console.log('User saved successfully');
+        res.json({ success: true });
+      });
+    });
+
 // get all USERs
     app.get('/api/users', function(req, res) {
 
