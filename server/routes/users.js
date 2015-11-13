@@ -52,26 +52,24 @@ module.exports = function(app) {
 
     // create USER and send back after creation
     app.post('/api/users', function(req, res) {
-        // create, information comes from AJAX request from Angular
-        User.create({
-            username : req.body.username,
-            email : req.body.email,
-            password : req.body.password,
-            listSubs : [req.body.listSubs],
-            projects: [req.body.projects],
-            weblinks: [req.body.weblinks],
-            done : false
-        }, function(err, user) {
-            if (err)
-                res.send(err);
+    // create a sample user
+    console.log(req.body);
+      var newUser = new User({ 
+        username : req.body.username,
+        email : req.body.email,
+        password : req.body.password,
+        listSubs : [req.body.listSubs],
+        projects: [req.body.projects],
+        weblinks: [req.body.weblinks]
+      });
 
-            // get and return all after you create another
-            User.find(function(err, users) {
-                if (err)
-                    res.send(err)
-                res.json(users);
-            });
-        });
+      // save the sample user
+      newUser.save(function(err) {
+        if (err) throw err;
+
+        console.log('User saved successfully');
+        res.json(newUser);
+      });
     });
 
     // delete USER

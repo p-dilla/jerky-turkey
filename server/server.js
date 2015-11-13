@@ -7,17 +7,8 @@
     var methodOverride = require('method-override'); 
     var jwt = require('jsonwebtoken');
     var config = require('./config');
-
-
     var app = module.exports = express();
-    require('./routes/users')(app);
-    require('./routes/lists')(app);
-    require('./routes/weblinks')(app);
-    require('./routes/projects')(app);
-    require('./routes/authenticate')(app);
-
     
-
     // configuration =================
     mongoose.connect(config.database);  
     app.set('superSecret', config.secret);
@@ -29,6 +20,12 @@
     app.use(bodyParser.json());                                     
     app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
     app.use(methodOverride());
+
+    require('./routes/users')(app);
+    require('./routes/lists')(app);
+    require('./routes/weblinks')(app);
+    require('./routes/projects')(app);
+    require('./routes/authenticate')(app);
 
 // application -------------------------------------------------------------
     app.get('/', function(req, res) {

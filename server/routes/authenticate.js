@@ -11,22 +11,22 @@ apiRoutes.post('/api/authenticate', function(req, res) {
     // find the user
     User.findOne({
       username: req.body.username
-    }, function(err, users) {
+    }, function(err, user) {
 
       if (err) throw err;
 
-      if (!users) {
+      if (!user) {
         res.json({ success: false, message: 'Authentication failed. User not found.' });
       } else if (user) {
 
         // check if password matches
-        if (users.password != req.body.password) {
+        if (user.password != req.body.password) {
           res.json({ success: false, message: 'Authentication failed. Wrong password.' });
         } else {
 
           // if user is found and password is right
           // create a token
-          var token = jwt.sign(users, app.get('superSecret'), {
+          var token = jwt.sign(user, app.get('superSecret'), {
             expiresInMinutes: 1440 // expires in 24 hours
           });
 
