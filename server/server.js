@@ -8,7 +8,8 @@
     var jwt = require('jsonwebtoken');
     var config = require('./config');
     var app = module.exports = express();
-    
+    var apiRoutes = express.Router(); 
+
     // configuration =================
     mongoose.connect(config.database);  
     app.set('superSecret', config.secret);
