@@ -25,7 +25,7 @@
     require('./routes/lists')(app);
     require('./routes/weblinks')(app);
     require('./routes/projects')(app);
-    require('./routes/authenticate')(app);
+    require('./routes/authenticate')(app, jwt);
 
 // application -------------------------------------------------------------
     app.get('/', function(req, res) {

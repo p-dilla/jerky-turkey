@@ -1,5 +1,6 @@
 
 var User = require('../models/users');
+var express  = require('express');
 module.exports = function(app) {
 // routes ======================================================================
 // api ---------------------------------------------------------------------
