@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-
 //define model =================
 var User = mongoose.model('User', {
     username : String,
@@ -17,6 +16,6 @@ var User = mongoose.model('User', {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Weblink'
 	}]
-});                     
+});                    
 
 module.exports = mongoose.model('User', User);
