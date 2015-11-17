@@ -17,4 +17,8 @@ var linkApp = angular
       templateUrl: "../views/register.html",
       controller: "registerController"
     })
+    .state('dashboard', {
+      url: "/dashboard",
+      templateUrl: "../views/dashboard.html"
+    })
 }]);
