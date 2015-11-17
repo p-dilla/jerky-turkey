@@ -1,5 +1,5 @@
-var linkApp = angular
-.module('linkApp', ['ui.router'])
+var myApp = angular
+.module('myApp', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
   $stateProvider
@@ -10,12 +10,17 @@ var linkApp = angular
     .state('login', {
       url: "/login",
       templateUrl: "../views/login.html",
-      controller: "loginController"
+      controller: "loginCtrl"
+    })
+    .state('logout', {
+      url: "/logout",
+      templateUrl: "../views/logout.html",
+      controller: "logoutCtrl"
     })
     .state('register', {
       url: "/register",
       templateUrl: "../views/register.html",
-      controller: "registerController"
+      controller: "registerCtrl"
     })
     .state('dashboard', {
       url: "/dashboard",
