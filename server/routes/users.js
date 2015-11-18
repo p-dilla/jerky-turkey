@@ -1,10 +1,12 @@
 
 var User = require('../models/users');
+var passport = require('passport');
+
 module.exports = function(app) {
 // routes ======================================================================
 // api ---------------------------------------------------------------------
 // get all USERs
-    app.get('/api/users', function(req, res) {
+    app.get('/users', function(req, res) {
 
         // use mongoose to get all in the database
         User.find(function(err, users) {
@@ -18,7 +20,7 @@ module.exports = function(app) {
     });
 
     // get single USER
-    app.get('/api/users/:users_id', function(req, res) {
+    app.get('/user/:users_id', function(req, res) {
 
         // use mongoose to get all in the database
         User.findById(req.params.users_id, function(err, users) {
@@ -32,7 +34,7 @@ module.exports = function(app) {
     });
 
     // create USER and send back after creation
-    app.post('/api/users', function(req, res) {
+    app.post('/register', function(req, res) {
         // create, information comes from AJAX request from Angular
         User.create({
             username : req.body.username,
@@ -56,7 +58,7 @@ module.exports = function(app) {
     });
 
     // delete USER
-    app.delete('/api/users/:users_id', function(req, res) {
+    app.delete('/remove/:users_id', function(req, res) {
         User.remove({
             _id : req.params.users_id
         }, function(err, users) {
@@ -73,7 +75,7 @@ module.exports = function(app) {
     });
 
     //update USER
-    app.put('/api/users/:users_id', function(req, res) {
+    app.put('/update/:users_id', function(req, res) {
         // use user model to find the user
         User.findById(req.params.users_id, function(err, users) {
 

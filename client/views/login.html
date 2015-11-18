@@ -1,9 +1,12 @@
 <h1>Login Page</h1>
-<div class="">
-	<form novalidate>
+<div class="container">
+	<div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+	<form ng-submit="login()" novalidate>
 		Username <br>
-		<input type="text" ng-model="user.username" class="form-control"> <br>
+		<input type="text" name="username" ng-model="loginForm.username" class="form-control" required> <br>
 		Password <br>
-		<input type="password" ng-model="user.password" class="form-control">
+		<input type="password" name="password" ng-model="loginForm.password" class="form-control" required>
+		<br>
+		<button class="btn btn-default" type="submit">Submit</button>
 	</form>
 </div>
