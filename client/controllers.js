@@ -17,6 +17,7 @@ angular.module('myApp').controller('loginCtrl',
           $location.path('/dashboard');
           $scope.disabled = false;
           $scope.loginForm = {};
+          console.log(user);
         })
         // handle error
         .catch(function () {
@@ -78,4 +79,12 @@ angular.module('myApp').controller('registerCtrl',
 
     };
 
+}]);
+
+angular.module('myApp').controller('dashCtrl',
+  ['$scope', '$http', function ($scope, $http) {
+    $http.get("/user/getCurrentUser").then(function(result){
+    $scope.currentUser = result;
+    console.log(result);
+    });
 }]);
