@@ -29,7 +29,6 @@ var myApp = angular
     .state('dashboard', {
       url: "/dashboard",
       templateUrl: "./views/dashboard.html",
-      controller: "dashCtrl",
       data: { auth: "restricted"}
     })
 

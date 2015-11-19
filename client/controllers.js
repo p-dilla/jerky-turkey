@@ -1,8 +1,9 @@
+//login==================================
 angular.module('myApp').controller('loginCtrl',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
-    console.log(AuthService.getUserStatus());
+    // console.log(AuthService.getUserStatus());
 
     $scope.login = function () {
 
@@ -26,18 +27,17 @@ angular.module('myApp').controller('loginCtrl',
           $scope.disabled = false;
           $scope.loginForm = {};
         });
-
     };
-
 }]);
 
+//logout==================================
 angular.module('myApp').controller('logoutCtrl',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
     $scope.logout = function () {
 
-      console.log(AuthService.getUserStatus());
+      // console.log(AuthService.getUserStatus());
 
       // call logout from service
       AuthService.logout()
@@ -49,11 +49,12 @@ angular.module('myApp').controller('logoutCtrl',
 
 }]);
 
+//register==================================
 angular.module('myApp').controller('registerCtrl',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
-    console.log(AuthService.getUserStatus());
+    // console.log(AuthService.getUserStatus());
 
     $scope.register = function () {
 
@@ -81,10 +82,11 @@ angular.module('myApp').controller('registerCtrl',
 
 }]);
 
-angular.module('myApp').controller('dashCtrl',
-  ['$scope', '$http', function ($scope, $http) {
-    $http.get("/user/getCurrentUser").then(function(result){
-    $scope.currentUser = result;
-    console.log(result);
-    });
-}]);
+// //dashboard==================================
+// angular.module('myApp').controller('dashCtrl',
+//   ['$scope', 'AuthService',
+//   function ($scope, AuthService) {
+//     $scope.username = AuthService.userInfo;
+//     console.log(AuthService.userInfo);
+// }]);
+

@@ -4,6 +4,7 @@ angular.module('myApp').factory('AuthService',
 
     // create user variable
     var user = null;
+    var userInfo;
 
     // return available functions for use in controllers
     return ({
@@ -26,6 +27,10 @@ angular.module('myApp').factory('AuthService',
       return user;
     } 
 
+    // function getUsername() {
+    //   return userInfo;
+    // }
+
     function login(username, password) {
       // create a new instance of deferred
       var deferred = $q.defer();
@@ -36,6 +41,7 @@ angular.module('myApp').factory('AuthService',
         .success(function (data, status) {
           if(status === 200 && data.status){
             user = true;
+            // userInfo = username;
             deferred.resolve();
           } else {
             user = false;
@@ -50,7 +56,6 @@ angular.module('myApp').factory('AuthService',
 
       // return promise object
       return deferred.promise;
-
     }
 
     function logout() {
@@ -72,7 +77,6 @@ angular.module('myApp').factory('AuthService',
 
       // return promise object
       return deferred.promise;
-
     }
 
     function register(username, password, email) {
@@ -84,6 +88,7 @@ angular.module('myApp').factory('AuthService',
         // handle success
         .success(function (data, status) {
           if(status === 200 && data.status){
+            // userInfo = username;
             deferred.resolve();
           } else {
             deferred.reject();
@@ -97,6 +102,4 @@ angular.module('myApp').factory('AuthService',
       // return promise object
       return deferred.promise;
     }
-
-
 }]);
