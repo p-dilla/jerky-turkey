@@ -77,3 +77,8 @@ angular.module('myApp').controller('registerController',
     };
 
 }]);
+
+angular.module('myApp').controller('dashController',
+  ['$scope', 'AuthService',
+  function ($scope, AuthService) {
+}]);

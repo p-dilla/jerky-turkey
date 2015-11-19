@@ -51,7 +51,6 @@ angular.module('myApp').factory('AuthService',
 
       // return promise object
       return deferred.promise;
-
     }
 
     function logout() {
@@ -74,7 +73,6 @@ angular.module('myApp').factory('AuthService',
 
       // return promise object
       return deferred.promise;
-
     }
 
     function register(username, password, email) {
@@ -99,7 +97,5 @@ angular.module('myApp').factory('AuthService',
 
       // return promise object
       return deferred.promise;
-
     }
-
 }]);

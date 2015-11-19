@@ -3,7 +3,7 @@ var express = require('express'),
     passport = require('passport');
     User = require('../models/user.js');
 
-
+//register ==================================
 router.post('/register', function(req, res) {
   User.register(new User({ username: req.body.username, 
             email : req.body.email,
@@ -19,6 +19,7 @@ router.post('/register', function(req, res) {
   });
 });
 
+//login ========================================
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
@@ -36,6 +37,7 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+//logout ========================================
 router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({status: 'Bye!'});
