@@ -79,6 +79,10 @@ angular.module('myApp').controller('registerController',
 }]);
 
 angular.module('myApp').controller('dashController',
-  ['$scope', 'AuthService',
-  function ($scope, AuthService) {
+  ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/user/getCurrent')
+      .then(function(result) {
+        $scope.currentUser = result.data;
+      })
 }]);

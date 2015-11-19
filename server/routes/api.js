@@ -43,4 +43,9 @@ router.get('/logout', function(req, res) {
   res.status(200).json({status: 'Bye!'});
 });
 
+//get current user ====================
+router.get('/getCurrent', function(req, res){
+  return res.send(req.user);
+})
+
 module.exports = router;
