@@ -1,34 +1,11 @@
-// server.js
-    // set up ========================
-    var express  = require('express');
-    var mongoose = require('mongoose');                     
-    var morgan = require('morgan');             
-    var bodyParser = require('body-parser');    
-    var methodOverride = require('method-override'); 
-    var app = module.exports = express();
+#!/usr/bin/env node
 
-    // configuration =================
-    mongoose.connect('mongodb://localhost/gresource');  
-    app.use('/', express.static(__dirname + '/../client'));
-    app.use(morgan('dev'));                                         
-    app.use(bodyParser.urlencoded({'extended':'true'}));            
-    app.use(bodyParser.json());                                     
-    app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
-    app.use(methodOverride());
+var debug = require('debug')('passport-mongo'),
+    app = require('./app');
 
-    require('./routes/users')(app);
-    require('./routes/lists')(app);
-    require('./routes/weblinks')(app);
-    require('./routes/projects')(app);
-    
-// application -------------------------------------------------------------
-    app.get('/', function(req, res) {
-        var path = require('path');
-        res.sendfile(path.resolve('../client/index.html')); 
-    });
 
-    // listen (start app with node server.js) ======================================
-    app.listen(8080);
-    console.log("App listening on port 8080");
+app.set('port', process.env.PORT || 3000);
 
-    
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
