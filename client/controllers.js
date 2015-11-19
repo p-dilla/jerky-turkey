@@ -14,7 +14,7 @@ angular.module('myApp').controller('loginController',
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
-          $location.path('/');
+          $location.path('/dashboard');
           $scope.disabled = false;
           $scope.loginForm = {};
         })
@@ -25,9 +25,7 @@ angular.module('myApp').controller('loginController',
           $scope.disabled = false;
           $scope.loginForm = {};
         });
-
     };
-
 }]);
 
 angular.module('myApp').controller('logoutController',
@@ -64,7 +62,7 @@ angular.module('myApp').controller('registerController',
       AuthService.register($scope.registerForm.username, $scope.registerForm.password)
         // handle success
         .then(function () {
-          $location.path('/login');
+          $location.path('/dashboard');
           $scope.disabled = false;
           $scope.registerForm = {};
         })
