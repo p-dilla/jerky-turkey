@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 
 var Weblink = new Schema({
-  linkName: String,
+  	linkName: String,
 	category: String,
 	url: String,
 	createdBy: {
