@@ -4,19 +4,21 @@ var express = require('express'),
     Weblink = require('../models/weblink.js');
 
 //create ==================================
-router.post('/create', function(req, res) {
-  var weblink = new Weblink();
+router.post('/create', function(req, res, next) {
 
-  weblink.linkName = req.body.linkName;
-  weblink.category = req.body.category;
-  weblink.url = req.body.url;
-  weblink.createdBy = req.body.createdBy;
+  var link = new Weblink();
+  link.linkName = req.body.linkName;
+  link.category = req.body.category;
+  link.url = req.body.url;
+  link.createdBy = req.body.createdBy;
 
-  weblink.save(function(err){
-    if(err)
+  link.save(function(err){
+    if(err){
       res.send(err);
-
-    res.json({message: 'Link created!', data: link});
+    }
+    else {
+      res.json({message: 'Link Created!'});
+    }
   });
 });
 
@@ -31,7 +33,7 @@ router.get('/findall', function(req, res) {
 });
 
 //get single ==================================
-router.get('/find', function(req, res) {
+router.get('/find/:weblink_id', function(req, res) {
   Weblink.findById(req.params.weblink_id, function(err, weblink){
     if(err)
       res.send(err);
@@ -41,7 +43,7 @@ router.get('/find', function(req, res) {
 });
 
 //update ==================================
-router.put('/update', function(req, res) {
+router.put('/update/:weblink_id', function(req, res) {
   Weblink.findById(req.params.weblink_id, function(err, weblink){
     if(err)
       res.send(err);
@@ -55,16 +57,27 @@ router.put('/update', function(req, res) {
         res.send(err);
 
     res.json(weblink);
+    });
   });
 });
 
 //remove ==================================
-router.delete('/delete', function(req, res) {
+router.delete('/delete/:weblink_id', function(req, res) {
   Weblink.findByIdAndRemove(req.params.weblink_id, function(err){
     if(err)
       res.send(err);
 
     res.json({message: 'Weblink has been removed!'});
+  });
+});
+
+//get by user ref ==================================****
+router.get('/find/:createdBy', function(req, res) {
+  Weblink.find(req.params.createdBy, function(err, weblink){
+    if(err)
+      res.send(err);
+
+    res.json(weblink);
   });
 });
 

@@ -5,7 +5,8 @@ var express = require('express'),
 
 //register ==================================
 router.post('/register', function(req, res) {
-  User.register(new User({ username: req.body.username, 
+  User.register(new User({ 
+            username: req.body.username, 
             email : req.body.email,
             listSubs : [req.body.listSubs],
             projects: [req.body.projects],
@@ -46,6 +47,42 @@ router.get('/logout', function(req, res) {
 //get current user ====================
 router.get('/getCurrent', function(req, res){
   return res.send(req.user);
-})
+});
+
+//get all users ====================
+router.get('/getall', function(req, res){
+  User.find(function(err, users){
+    if(err)
+      res.send(err);
+
+    res.json(users);
+  });
+});
+
+//get single ==================================
+router.get('/find/:user_id', function(req, res) {
+  User.findById(req.params.user_id, function(err, user){
+    if(err)
+      res.send(err);
+
+    res.json(user);
+  });
+});
+
+//update ==================================
+router.put('/update/:user_id', function(req, res) {
+  User.findById(req.params.user_id, function(err, user){
+    if(err)
+      res.send(err);
+    user.email = req.body.email;
+
+    user.save(function(err){
+      if(err)
+        res.send(err);
+
+    res.json(user);
+    });
+  });
+});
 
 module.exports = router;
