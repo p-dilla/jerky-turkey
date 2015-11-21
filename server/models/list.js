@@ -1,8 +1,6 @@
 // list model
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    passportLocalMongoose = require('passport-local-mongoose');
-
+    Schema = mongoose.Schema;
 
 var List = new Schema({
   	listName: String,
@@ -16,7 +14,5 @@ var List = new Schema({
 		ref: 'User'
 	}
 });
-
-List.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('lists', List);

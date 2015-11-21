@@ -1,7 +1,6 @@
 // weblink model
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    passportLocalMongoose = require('passport-local-mongoose');
+    Schema = mongoose.Schema;
 
 
 var Weblink = new Schema({
@@ -13,7 +12,5 @@ var Weblink = new Schema({
 		ref: 'User'
 	}
 });
-
-Weblink.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('weblinks', Weblink);

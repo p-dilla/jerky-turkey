@@ -50,7 +50,7 @@ router.get('/getCurrent', function(req, res){
 });
 
 //get all users ====================
-router.get('/getall', function(req, res){
+router.get('/findall', function(req, res){
   User.find(function(err, users){
     if(err)
       res.send(err);

@@ -22,6 +22,8 @@ var app = express();
 // require routes
 var userRoutes = require('./routes/user.js');
 var linkRoutes = require('./routes/weblink.js');
+var projectRoutes = require('./routes/project.js');
+var listRoutes = require('./routes/list.js');
 
 // define middleware
 app.use(express.static(path.join(__dirname, '../client')));
@@ -31,8 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('express-session')({
     secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,6 +48,8 @@ passport.deserializeUser(User.deserializeUser());
 // routes
 app.use('/user/', userRoutes);
 app.use('/link/', linkRoutes);
+app.use('/project/', projectRoutes);
+app.use('/list/', listRoutes);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
