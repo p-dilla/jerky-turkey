@@ -22,9 +22,17 @@ myApp.config(function ($routeProvider) {
       controller: 'dashController',
       access: {restricted: true}
     })
-    .when('/test', {
-      template: '<h1>This is page two!</h1>',
-      access: {restricted: true}
+    .when('/add-project', {
+      templateUrl: 'partials/add-project.html',
+      access: {restricted: false}
+    })
+    .when('/add-list', {
+      templateUrl: 'partials/add-list.html',
+      access: {restricted: false}
+    })
+    .when('/add-link', {
+      templateUrl: 'partials/add-link.html',
+      access: {restricted: false}
     })
     .otherwise({redirectTo: '/'});
 });

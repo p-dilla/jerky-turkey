@@ -41,7 +41,6 @@ angular.module('myApp').controller('logoutController',
         .then(function () {
           $location.path('/login');
         });
-
     };
 
 }]);
@@ -76,13 +75,4 @@ angular.module('myApp').controller('registerController',
 
     };
 
-}]);
-
-angular.module('myApp').controller('dashController',
-  ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/user/getCurrent')
-      .then(function(result) {
-        $scope.currentUser = result.data;
-      })
 }]);

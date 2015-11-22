@@ -8,6 +8,7 @@ var express = require('express'),
     hash = require('bcrypt-nodejs'),
     path = require('path'),
     passport = require('passport'),
+    MongoStore = require('connect-mongo')(expressSession),
     localStrategy = require('passport-local' ).Strategy;
 
 // mongoose
@@ -32,9 +33,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('express-session')({
+    store: new MongoStore({
+        url: 'mongodb://localhost/gresource'
+    }),
     secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -55,7 +59,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
 
-// error hndlers
+// error handlers
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;

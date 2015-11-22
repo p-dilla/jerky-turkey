@@ -1,0 +1,30 @@
+<div class="col-md-4">
+  <h1>New Project</h2>
+  <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+  <form class="form" ng-submit="addProject()">
+  <div class="form-group">
+      <label>Project Title</label>
+      <input type="text" class="form-control" name="title" ng-model="projectForm.title" required>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-control" name="description" ng-model="projectForm.description">
+    </div>
+    <div class="form-group">
+      <label>Website</label>
+        <input type="text" class="form-control" name="website" ng-model="projectForm.website">
+    </div>
+    <div class="form-group">
+      <label>Private Project?</label>
+      <label class="radio-inline">
+        <input type="radio" name="private" ng-model="projectForm.isPrivate" ng-value="true" required> Yes
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="private" ng-model="projectForm.isPrivate" ng-value="false" required> No
+      </label>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-default" ng-disabled="disabled">Submit</button>
+    </div>
+  </form>
+</div>

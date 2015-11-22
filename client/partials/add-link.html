@@ -1,0 +1,26 @@
+<div class="col-md-4">
+  <h1>New Link</h2>
+  <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+  <form class="form" ng-submit="addLink()">
+    <div class="form-group">
+      <label>Link Title</label>
+      <input type="text" class="form-control" name="title" ng-model="linkForm.title" required>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <select class="form-control" name="category" ng-model="linkForm.category">
+        <option ng-value="1">option 1</option>
+        <option ng-value="2">option 2</option>
+        <option ng-value="3">option 3</option>
+        <option ng-value="4">option 4</option>
+        <option ng-value="5">option 5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>URL</label>
+      <input type="text" class="form-control" name="url" ng-model="linkForm.url" required>
+    </div>
+      <button type="submit" class="btn btn-default" ng-disabled="disabled">Submit</button>
+    </div>
+  </form>
+</div>
