@@ -1,14 +1,18 @@
 angular.module('myApp').controller('dashController',
-  ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/user/getCurrent')
-      .then(function(result) {
-        $scope.currentUser = result.data;
-      });
-      
-    $http.get('/link/findby/'+ 'jon')
+  ['$rootScope', '$http', 'myService',
+  function ($rootScope, $http, myService) {
+
+    myService.async().then(function() {
+      $rootScope.currentUser = myService.data();
+
+    });
+      debugger;
+      // var theUser = new AppService;
+      // var current = AppService.getUser();
+
+    $http.get('/link/findby/'+ $rootScope.currentUser )
     	.then(function(result) {
-        $scope.userLinks = result.data;
+        $rootScope.userLinks = result.data;
         console.log(result.data);
       });
 }]);
