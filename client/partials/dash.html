@@ -4,6 +4,25 @@
 	<li><a ng-href="#/add-list">Create List</a></li>
 	<li><a ng-href="#/add-project">Create Project</a></li>
 </ul>
+<hr>
+<h3>My Links</h3>
+<ul class="list-unstyled">
+	<li ng-repeat="l in userLinks">
+		<a href="#">{{l.linkName + ' ' + l.dateAdded}}</a>
+	</li>
+</ul>
+<!-- <h3>My Lists</h3>
+<ul class="list-unstyled">
+	<li ng-repeat="l in userLists">
+		<a href="#">{{l.listName + ' ' + l.dateAdded}}</a>
+	</li>
+</ul>
+<h3>My Projects</h3>
+<ul class="list-unstyled">
+	<li ng-repeat="p in userProjects">
+		<a href="#">{{p.projectTitle + ' ' + p.dateAdded}}</a>
+	</li>
+</ul> -->
 <div ng-controller="logoutController">
   <a ng-click='logout()' class="btn btn-default">Logout</a>
 </div>

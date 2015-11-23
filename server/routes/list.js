@@ -71,13 +71,12 @@ router.delete('/delete/:list_id', function(req, res) {
 });
 
 //get by user ref ==================================****
-router.get('/find/:createdBy', function(req, res) {
-  List.find(req.params.createdBy, function(err, list){
-    if(err)
-      res.send(err);
-
-    res.json(list);
-  });
+router.get('/findby/:createdBy', function(req, res) {
+  if (req.params.createdBy) {
+    List.find({ createdBy: req.params.createdBy }, function (err, lists) {
+        res.json(lists);
+    });
+  }
 });
 
 module.exports = router;

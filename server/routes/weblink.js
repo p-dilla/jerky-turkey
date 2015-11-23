@@ -71,14 +71,13 @@ router.delete('/delete/:weblink_id', function(req, res) {
   });
 });
 
-//get by user ref ==================================****
-router.get('/find/:createdBy', function(req, res) {
-  Weblink.find(req.params.createdBy, function(err, weblink){
-    if(err)
-      res.send(err);
-
-    res.json(weblink);
-  });
+//get by user ==================================
+router.get('/findby/:createdBy', function(req, res) {
+  if (req.params.createdBy) {
+    Weblink.find({ createdBy: req.params.createdBy }, function (err, weblinks) {
+        res.json(weblinks);
+    });
+  }
 });
 
 module.exports = router;

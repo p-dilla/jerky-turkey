@@ -76,14 +76,13 @@ router.delete('/delete/:project_id', function(req, res) {
   });
 });
 
-//get by user ref ==================================****
-router.get('/find/:createdBy', function(req, res) {
-  Project.find(req.params.createdBy, function(err, project){
-    if(err)
-      res.send(err);
-
-    res.json(project);
-  });
+//get by user ==================================****
+router.get('/findby/:createdBy', function(req, res) {
+  if (req.params.createdBy) {
+    Project.find({ createdBy: req.params.createdBy }, function (err, projects) {
+        res.json(projects);
+    });
+  }
 });
 
 module.exports = router;
