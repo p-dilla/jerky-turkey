@@ -1,18 +1,36 @@
-angular.module('myApp').factory('myService', function($http, $q) {
-  var deffered = $q.defer();
-  var data = [];  
-  var myService = {};
+angular.module('myApp').factory('AppService', function($http, $q) {
+    var appServiceFactory = {};
 
-  myService.async = function() {
-    $http.get('/user/getCurrent')
-    .success(function (d) {
-      data = d;
-      console.log(d);
-      deffered.resolve();
-    });
-    return deffered.promise;
+  // @_getData
+  var _getData = function () {
+      var deferred = $q.defer();
+      
+      $http.get('/user/getCurrent').success(function (response) {
+
+          deferred.resolve(response);
+
+      }).error(function (err, status) {
+          deferred.reject(err);
+      });
+
+      return deferred.promise;
   };
-  myService.data = function() { return data; };
 
-  return myService;
+  var _getByUsername = function (username) {
+      var deferred = $q.defer();
+      
+      $http.get('/link/findby/'+ username).success(function (response) {
+
+          deferred.resolve(response);
+
+      }).error(function (err, status) {
+          deferred.reject(err);
+      });
+
+      return deferred.promise;
+  };
+
+  appServiceFactory.getData = _getData;
+  appServiceFactory.getByUsername = _getByUsername;
+  return appServiceFactory;
 });

@@ -1,18 +1,19 @@
 angular.module('myApp').controller('dashController',
-  ['$rootScope', '$http', 'myService',
-  function ($rootScope, $http, myService) {
-
-    myService.async().then(function() {
-      $rootScope.currentUser = myService.data();
-
-    });
+  ['$scope', '$http', 'AppService',
+  function ($scope, $http, AppService) {
       debugger;
-      // var theUser = new AppService;
-      // var current = AppService.getUser();
+      activate();
 
-    $http.get('/link/findby/'+ $rootScope.currentUser )
-    	.then(function(result) {
-        $rootScope.userLinks = result.data;
-        console.log(result.data);
-      });
+      function activate() {
+        AppService.getData().then(function(response){
+          $scope.currentUser = response;
+          getByUsername(response.username);
+        });
+
+      }
+      function getByUsername(username) {
+        AppService.getByUsername(username).then(function(response){
+          $scope.userLinks = response;
+        });
+      }
 }]);
