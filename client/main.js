@@ -24,15 +24,18 @@ myApp.config(function ($routeProvider) {
     })
     .when('/add-project', {
       templateUrl: 'partials/add-project.html',
-      access: {restricted: false}
+      controller: 'addController',
+      access: {restricted: true}
     })
     .when('/add-list', {
       templateUrl: 'partials/add-list.html',
-      access: {restricted: false}
+      controller: 'addController',
+      access: {restricted: true}
     })
     .when('/add-link', {
       templateUrl: 'partials/add-link.html',
-      access: {restricted: false}
+      controller: 'addController',
+      access: {restricted: true}
     })
     .otherwise({redirectTo: '/'});
 });

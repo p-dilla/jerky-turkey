@@ -4,7 +4,7 @@
   <form class="form" ng-submit="addList()">
   <div class="form-group">
       <label>List Title</label>
-      <input type="text" class="form-control" name="title" ng-model="listForm.title" required>
+      <input type="text" class="form-control" name="title" ng-model="listForm.listName" required>
     </div>
     <div class="form-group">
       <label>Category</label>
@@ -16,7 +16,7 @@
         <option ng-value="5">option 5</option>
       </select>
     </div>
-      <button type="submit" class="btn btn-default" ng-disabled="disabled">Submit</button>
+      <button type="submit" class="btn btn-default" ng-disabled="disabled">Add List</button>
     </div>
   </form>
 </div>
