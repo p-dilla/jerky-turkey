@@ -48,7 +48,7 @@ router.put('/update/:list_id', function(req, res) {
       res.send(err);
     list.listName = req.body.listName;
     list.category = req.body.category;
-    list.weblinks = [req.body.weblinks];
+    list.weblinks = req.body.weblinks;
     list.createdBy = req.body.createdBy;
 
     list.save(function(err){

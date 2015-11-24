@@ -54,7 +54,7 @@ router.put('/update/:project_id', function(req, res) {
     project.website = req.body.website;
     project.isPrivate = req.body.isPrivate;
     project.createdBy = req.body.createdBy;
-    project.members = [req.body.members];
+    project.members = req.body.members;
     project.weblinks = [req.body.weblinks];
 
     project.save(function(err){

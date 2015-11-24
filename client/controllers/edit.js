@@ -1,6 +1,6 @@
 angular.module('myApp').controller('editController',
-  ['$scope', '$http', '$routeParams', 
-  function ($scope, $http, $routeParams) {
+  ['$scope', '$http', '$location', '$routeParams', 
+  function ($scope, $http, $location, $routeParams) {
 
   	//get link
   	$http.get('/link/find/'+ $routeParams._id)
@@ -19,4 +19,37 @@ angular.module('myApp').controller('editController',
 		})
 
 	//update link
+	$scope.updateLink = function(link) {
+		$http.put('/link/update/'+ link._id, link)
+		.success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
+	//update list
+	$scope.updateList = function(list) {
+		debugger;
+		$http.put('/list/update/'+ list._id, list)
+		.success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
+	//update project
+	$scope.updateProject = function(project) {
+		$http.put('/project/update/'+ project._id, project)
+		.success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
 }]);
