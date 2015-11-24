@@ -22,7 +22,7 @@
 							<th>Title</th>
 							<th>Contributor</th>
 						</tr>
-						<tr ng-repeat="l in linkList | limitTo:5 | orderBy:'-dateAdded'">
+						<tr ng-repeat="l in linkList | limitTo:10 | orderBy:'-dateAdded'">
 							<td>
 								<a href="http://{{l.url}}">{{l.linkName}}</a>
 							</td>
@@ -42,7 +42,7 @@
 							<th>Title</th>
 							<th>Creator</th>
 						</tr>
-						<tr ng-repeat="l in listList | limitTo:5 | orderBy:'-dateAdded'">
+						<tr ng-repeat="l in listList | limitTo:10 | orderBy:'-dateAdded'">
 							<td>
 								<a ng-href="#/view-list/{{l._id}}">{{l.listName}}</a>
 							</td>

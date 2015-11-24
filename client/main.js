@@ -24,7 +24,7 @@ myApp.config(function ($routeProvider) {
     .when('/dashboard', {
       templateUrl: 'partials/dash.html',
       controller: 'dashController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .when('/add-project', {
       templateUrl: 'partials/add-project.html',

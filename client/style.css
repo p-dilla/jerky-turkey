@@ -11,6 +11,28 @@ html, body {
 	height: 100%;
 }
 
+.splash-bg {
+	background: #1d976c; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #1D976C , #93F9B9); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #1D976C , #93F9B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	position: relative;
+}
+
+.logo-small {
+	width: 15%;
+	padding: 20px;
+}
+
+.content-box {
+	color: #6c6c6c;
+	border-radius: 20px;
+	background-color: white;
+	padding: 20px 20px 40px 20px;
+	position: absolute;
+	top: 20%;
+	left: 33%;
+}
+
 .site-container {
 	padding: 0;
 }
@@ -82,10 +104,56 @@ html, body {
 	color: #1d976c;
 }
 
-a.content-btn {
+.content-header {
+	padding: 10px 20px;
+	min-height: 50px;
+	color: white;
+	background: #1d976c; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #1D976C , #93F9B9); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #1D976C , #93F9B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.content-header a {
+	color: white;
+	padding-left: 15px;
+}
+
+.content-header a:hover {
+	color: white;
+}
+
+.content-header a {
+	display: inline-block;
+}
+
+a.content-btn, button.content-btn {
 	border-radius: 20px;
 	background-color: #59c993;
 	color: white;
 	font-size: 20px;
 	padding: 5px 35px;
+}
+
+button.content-btn:hover {
+	background-color: #6c6c6c;
+	color: white;
+}
+
+.option-menu {
+	display: inline-block;
+	padding-top: 30px;
+}
+
+.option-menu li {
+	display: inline-block;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.option-btn a {
+	border-radius: 20px;
+	background-color: #cacaca;
+	color: white;
+	font-size: 20px;
+	padding: 10px 30px;
 }
