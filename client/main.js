@@ -74,7 +74,6 @@ myApp.config(function ($routeProvider) {
     .otherwise({redirectTo: '/'});
 });
 
-
 myApp.run(function ($rootScope, $location, $route, AuthService) {
   $rootScope.$on('$routeChangeStart', function (event, next, current) {
     if (next.access.restricted && AuthService.isLoggedIn() === false) {

@@ -1,7 +1,7 @@
-
 <div class="col-md-4">
   <h1>Edit Link</h1>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+  <!-- edit form info  -->
   <form class="form" ng-submit="updateLink(linkForm)">
     <div class="form-group">
       <label>Link Title</label>
@@ -26,4 +26,15 @@
 	   <a ng-href="#/dashboard" class="btn btn-default">Cancel</a>
     </div>
   </form>
+  <!-- add link to list -->
+  <table>
+    <tr>
+      <th>Link Title</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Delete</td>
+    </tr>
+  </table>
 </div>
