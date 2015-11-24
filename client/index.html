@@ -6,12 +6,21 @@
   <title>GresourceR</title>
   <!-- styles -->
   <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
-
-  <div class="container">
-    <div ng-view></div>
+  <div class="full-height" ng-view></div>
+  <div class="footer-section">
+    <div class="footer-content container text-center">
+      <ul class="list-unstyled">
+        <li>&#169; 2015 Patrice Dillard</li>
+        <li>Links</li>
+        <li>Lists</li>
+        <li>Projects</li>
+        <li>Users</li>
+      </ul>
+    </div>
   </div>
-
   <!-- scripts -->
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -20,6 +29,7 @@
   <script src="./main.js"></script>
   <script src="./services/accountServices.js"></script>
   <script src="./services/appServices.js"></script>
+  <script src="./controllers/home.js"></script>
   <script src="./controllers/account.js"></script>
   <script src="./controllers/dash.js"></script>
   <script src="./controllers/add.js"></script>

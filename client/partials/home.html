@@ -1,11 +1,59 @@
-<h1>Home</h1>
-<a ng-href="#/login" class="btn btn-default">Login</a>
-<a ng-href="#/register" class="btn btn-default">Register</a>
-<h1>Most Recent Links</h1>
-<table class="table">
-	
-</table>
-<h1>Most Recent Lists</h1>
-<table class="table">
-	
-</table>
+<div class="site-container container-fluid full-height">
+	<div class="hero-section">
+		<div class="hero-header pull-right">
+			<a ng-href="#/login" class="hero-header-btn">Login</a>
+			<a ng-href="#/register" class="hero-header-btn">Sign Up</a>
+			<a ng-href="#" class="hero-header-btn">Repository</a>
+		</div>
+		<div class="hero-content text-center">
+			<img src="/images/logo.png" alt="logo">
+			<h4>The Group Resource Repository</h4>
+			<p>Store links, access them anywhere, share with your team or the World.</p>
+			<a ng-href="#/register" class="btn hero-btn">Sign-Up</a>
+		</div>
+	</div>
+	<div class="container content-section">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="link-section">
+					<h1>Most Recent Links</h1>
+					<table class="table">
+						<tr>
+							<th>Title</th>
+							<th>Contributor</th>
+						</tr>
+						<tr ng-repeat="l in linkList | limitTo:5 | orderBy:'-dateAdded'">
+							<td>
+								<a href="http://{{l.url}}">{{l.linkName}}</a>
+							</td>
+							<td>
+								{{l.createdBy}}
+							</td>
+						</tr>
+					</table>
+				</div>
+				<a href="" class="content-btn">See All</a>
+			</div>
+			<div class="col-md-6">
+				<div class="list-section">
+					<h1>Most Recent Lists</h1>
+					<table class="table">
+						<tr>
+							<th>Title</th>
+							<th>Creator</th>
+						</tr>
+						<tr ng-repeat="l in listList | limitTo:5 | orderBy:'-dateAdded'">
+							<td>
+								<a ng-href="#/view-list/{{l._id}}">{{l.listName}}</a>
+							</td>
+							<td>
+								{{l.createdBy}}
+							</td>
+						</tr>
+					</table>
+				</div>
+				<a href="" class="content-btn">See All</a>
+			</div>
+		</div>
+	</div>
+</div>
