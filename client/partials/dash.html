@@ -8,19 +8,19 @@
 <h3>My Links</h3>
 <ul class="list-unstyled">
 	<li ng-repeat="l in userLinks">
-		<a ng-href="#/view-link/{{l._id}}">{{l.linkName + ' ' + l.dateAdded}}</a>
+		<a ng-href="#/view-link/{{l._id}}">{{l.linkName}}</a>
 	</li>
 </ul>
 <h3>My Lists</h3>
 <ul class="list-unstyled">
 	<li ng-repeat="l in userLists">
-		<a ng-href="#/view-list/{{l._id}}">{{l.listName + ' ' + l.dateAdded}}</a>
+		<a ng-href="#/view-list/{{l._id}}">{{l.listName}}</a>
 	</li>
 </ul>
 <h3>My Projects</h3>
 <ul class="list-unstyled">
 	<li ng-repeat="p in userProjects">
-		<a href="#">{{p.projectTitle + ' ' + p.dateAdded}}</a>
+		<a href="#/view-project/{{p._id}}">{{p.projectTitle}}</a>
 	</li>
 </ul>
 <div ng-controller="logoutController">

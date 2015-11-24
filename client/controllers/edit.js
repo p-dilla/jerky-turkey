@@ -1,21 +1,22 @@
-angular.module('myApp').controller('viewController',
+angular.module('myApp').controller('editController',
   ['$scope', '$http', '$routeParams', 
   function ($scope, $http, $routeParams) {
 
   	//get link
   	$http.get('/link/find/'+ $routeParams._id)
 		.success(function(response) {  
-			$scope.linkItem = response;
+			$scope.linkForm = response;
 		})
 	//get list
   	$http.get('/list/find/'+ $routeParams._id)
 		.success(function(response) {  
-			$scope.listItem = response;
+			$scope.listForm = response;
 		})
 	//get project
   	$http.get('/project/find/'+ $routeParams._id)
 		.success(function(response) {  
-			$scope.projectItem = response;
+			$scope.projectForm = response;
 		})
 
-  }]);
+	//update link
+}]);

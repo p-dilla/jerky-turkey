@@ -37,9 +37,34 @@ myApp.config(function ($routeProvider) {
       controller: 'addController',
       access: {restricted: true}
     })
-    .when('/detail-link/', {
-      templateUrl: 'partials/detail-link.html',
+    .when('/view-link/:_id', {
+      templateUrl: 'partials/view-link.html',
       controller: 'viewController',
+      access: {restricted: false}
+    })
+    .when('/view-list/:_id', {
+      templateUrl: 'partials/view-list.html',
+      controller: 'viewController',
+      access: {restricted: false}
+    })
+    .when('/view-project/:_id', {
+      templateUrl: 'partials/view-project.html',
+      controller: 'viewController',
+      access: {restricted: false}
+    })
+    .when('/edit-link/:_id', {
+      templateUrl: 'partials/edit-link.html',
+      controller: 'editController',
+      access: {restricted: true}
+    })
+    .when('/edit-list/:_id', {
+      templateUrl: 'partials/edit-list.html',
+      controller: 'editController',
+      access: {restricted: true}
+    })
+    .when('/edit-project/:_id', {
+      templateUrl: 'partials/edit-project.html',
+      controller: 'editController',
       access: {restricted: true}
     })
     .otherwise({redirectTo: '/'});

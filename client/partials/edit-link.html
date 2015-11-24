@@ -1,15 +1,17 @@
+
 <div class="col-md-4">
-  <h1>New Link</h1>
+  <h1>Edit Link</h1>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-  <form class="form" ng-submit="addLink()">
+  <form class="form" ng-submit="editLink()">
     <div class="form-group">
       <label>Link Title</label>
       <input type="text" class="form-control" name="title" ng-model="linkForm.linkName" required>
     </div>
     <div class="form-group">
       <label>Category</label>
-      <select class="form-control" name="category" ng-model="linkForm.category">
-        <option ng-value="1">option 1</option>
+      <select class="form-control" name="category" ng-model="linkForm.category" ng-value="linkForm.category">
+  <script src="./controllers/view.js"></script>
+        <option ng-value="">option 1</option>
         <option ng-value="2">option 2</option>
         <option ng-value="3">option 3</option>
         <option ng-value="4">option 4</option>
@@ -20,7 +22,9 @@
       <label>URL</label>
       <input type="text" class="form-control" name="url" ng-model="linkForm.url" required>
     </div>
-      <button type="submit" class="btn btn-default" ng-disabled="disabled">Add Link</button>
+    <button type="submit" class="btn btn-default" ng-disabled="disabled">Save Changes</button> 
+    <button type="button" class="btn btn-danger" ng-click="editLink()">Delete Link</button>
+	<a ng-href="#/dashboard" class="btn btn-default">Cancel</a>
     </div>
   </form>
 </div>
