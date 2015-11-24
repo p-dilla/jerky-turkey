@@ -37,6 +37,11 @@ myApp.config(function ($routeProvider) {
       controller: 'addController',
       access: {restricted: true}
     })
+    .when('/detail-link/', {
+      templateUrl: 'partials/detail-link.html',
+      controller: 'viewController',
+      access: {restricted: true}
+    })
     .otherwise({redirectTo: '/'});
 });
 
