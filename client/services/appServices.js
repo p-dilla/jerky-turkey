@@ -1,4 +1,4 @@
-angular.module('myApp').factory('AppService', function($http) {
+angular.module('myApp').service('AppService', function($http) {
     var vm = this;
     var data = [];
 
