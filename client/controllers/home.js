@@ -13,4 +13,11 @@ angular.module('myApp').controller('homeController',
 			$scope.listList = response;
 		})
 
+
+	//get all projects
+  	$http.get('/project/findall/')
+		.success(function(response) {  
+			$scope.projectList = response;
+		})
+
   }]);

@@ -7,6 +7,11 @@ myApp.config(function ($routeProvider) {
       controller: 'homeController',
       access: {restricted: false}
     })
+    .when('/repo', {
+      templateUrl: 'partials/view-repo.html',
+      controller: 'homeController',
+      access: {restricted: false}
+    })
     .when('/login', {
       templateUrl: 'partials/login.html',
       controller: 'loginController',

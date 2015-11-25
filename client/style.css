@@ -8,7 +8,7 @@ html, body {
 }
 
 .content-spacer {
-	min-height: 300px;
+	min-height: 200px;
 }
 
 .full-height {
@@ -84,8 +84,8 @@ html, body {
 }
 
 .footer-section {
-	position: absolute;
-	bottom: 0;
+	/*position: absolute;*/
+	/*bottom: 0;*/
 	min-height: 50px;
 	min-width: 100%;
 	background-color: #6c6c6c;

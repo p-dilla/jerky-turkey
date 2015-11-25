@@ -3,26 +3,23 @@
 		<div class="hero-header pull-right">
 			<a ng-href="#/login" class="hero-header-btn">Login</a>
 			<a ng-href="#/register" class="hero-header-btn">Sign Up</a>
-			<a ng-href="#/repo" class="hero-header-btn">Repository</a>
+			<a ng-href="#" class="hero-header-btn">Repository</a>
 		</div>
 		<div class="hero-content text-center">
-			<img src="/images/logo.png" alt="logo">
-			<h4>The Group Resource Repository</h4>
-			<p>Store links, access them anywhere, share with your team or the World.</p>
-			<a ng-href="#/register" class="btn hero-btn">Sign-Up</a>
+			<a ng-href="/#/"><img src="/images/logo.png" alt="logo"></a>
 		</div>
 	</div>
 	<div class="container content-section">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="link-section">
-					<h1>Most Recent Links</h1>
+					<h1>All Links</h1>
 					<table class="table">
 						<tr>
 							<th>Title</th>
 							<th>Contributor</th>
 						</tr>
-						<tr ng-repeat="l in linkList | limitTo:5 | orderBy:'-dateAdded'">
+						<tr ng-repeat="l in linkList | orderBy:'-dateAdded'">
 							<td>
 								<a href="http://{{l.url}}">{{l.linkName}}</a>
 							</td>
@@ -32,17 +29,16 @@
 						</tr>
 					</table>
 				</div>
-				<a ng-href="#/repo" class="content-btn">See All</a>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="list-section">
-					<h1>Most Recent Lists</h1>
+					<h1>All Lists</h1>
 					<table class="table">
 						<tr>
 							<th>Title</th>
 							<th>Creator</th>
 						</tr>
-						<tr ng-repeat="l in listList | limitTo:5 | orderBy:'-dateAdded'">
+						<tr ng-repeat="l in listList | orderBy:'-dateAdded'">
 							<td>
 								<a ng-href="#/view-list/{{l._id}}">{{l.listName}}</a>
 							</td>
@@ -52,7 +48,25 @@
 						</tr>
 					</table>
 				</div>
-				<a ng-href="#/repo" class="content-btn">See All</a>
+			</div>
+			<div class="col-md-4">
+				<div class="link-section">
+					<h1>All Projects</h1>
+					<table class="table">
+						<tr>
+							<th>Title</th>
+							<th>Contributor</th>
+						</tr>
+						<tr ng-repeat="p in projectList | orderBy:'-dateAdded'">
+							<td>
+								<a ng-href="#/view-project/{{p._id}}" >{{p.projectTitle}}</a>
+							</td>
+							<td>
+								{{p.createdBy}}
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

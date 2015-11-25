@@ -26,13 +26,16 @@
 				</tr>
 				<tr ng-repeat="l in userLinks | orderBy:'-dateAdded'">
 					<td>
-						<a href="http://{{l.url}}">{{l.linkName}}</a>
+						<a ng-href="#/view-link/{{l._id}}">{{l.linkName}}</a>
 					</td>
 					<td>
 						{{l.dateAdded}}
 					</td>
 					<td>
 						<a ng-href="#/edit-link/{{l._id}}"><img src="/images/edit-icon.png" alt="edit"></a>
+					</td>
+					<td>
+						<a href="http://{{l.url}}">Visit</a>
 					</td>
 				</tr>
 			</table>
