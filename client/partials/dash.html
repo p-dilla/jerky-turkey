@@ -3,7 +3,7 @@
 	<div ng-controller="logoutController" class="pull-right">
 		<a ng-click="logout()" href="#"> Logout</a>
 	</div>
-	<p class="pull-right">Logged in as {{currentUser.username}}</p>
+	<!-- <p class="pull-right">Logged in as {{currentUser.username}}</p> -->
 </div>
 <div class="text-center">
 	<ul class="list-unstyled option-menu">
@@ -21,13 +21,17 @@
 				<tr>
 					<th>Title</th>
 					<th>Date Added</th>
+					<th></th>
 				</tr>
 				<tr ng-repeat="l in userLinks | orderBy:'-dateAdded'">
 					<td>
-						<a ng-href="#/view-link/{{l._id}}">{{l.linkName}}</a>
+						<a href="http://{{l.url}}">{{l.linkName}}</a>
 					</td>
 					<td>
 						{{l.dateAdded}}
+					</td>
+					<td>
+						<a ng-href="#/edit-link/{{l._id}}"><img src="/images/edit-icon.png" alt="edit"></a>
 					</td>
 				</tr>
 			</table>
@@ -38,7 +42,7 @@
 				<tr>
 					<th>Title</th>
 					<th>Date Added</th>
-					<th>Link Count</th>
+					<th></th>
 				</tr>
 				<tr ng-repeat="l in userLists | orderBy:'-dateAdded'">
 					<td>
@@ -48,7 +52,7 @@
 						{{l.dateAdded}}
 					</td>
 					<td>
-						#
+						<a ng-href="#/edit-list/{{l._id}}"><img src="/images/edit-icon.png" alt="edit"></a>
 					</td>
 				</tr>
 			</table>
@@ -59,6 +63,7 @@
 				<tr>
 					<th>Title</th>
 					<th>Date Added</th>
+					<th></th>
 				</tr>
 				<tr ng-repeat="p in userProjects | orderBy:'-dateAdded'">
 					<td>
@@ -66,6 +71,9 @@
 					</td>
 					<td>
 						{{p.dateAdded}}
+					</td>
+					<td>
+						<a ng-href="#/edit-project/{{p._id}}"><img src="/images/edit-icon.png" alt="edit"></a>
 					</td>
 				</tr>
 			</table>

@@ -29,17 +29,17 @@ myApp.config(function ($routeProvider) {
     .when('/add-project', {
       templateUrl: 'partials/add-project.html',
       controller: 'addController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .when('/add-list', {
       templateUrl: 'partials/add-list.html',
       controller: 'addController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .when('/add-link', {
       templateUrl: 'partials/add-link.html',
       controller: 'addController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .when('/view-link/:_id', {
       templateUrl: 'partials/view-link.html',
@@ -59,17 +59,17 @@ myApp.config(function ($routeProvider) {
     .when('/edit-link/:_id', {
       templateUrl: 'partials/edit-link.html',
       controller: 'editController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .when('/edit-list/:_id', {
       templateUrl: 'partials/edit-list.html',
       controller: 'editController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .when('/edit-project/:_id', {
       templateUrl: 'partials/edit-project.html',
       controller: 'editController',
-      access: {restricted: true}
+      access: {restricted: false}
     })
     .otherwise({redirectTo: '/'});
 });

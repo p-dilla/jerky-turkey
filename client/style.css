@@ -7,6 +7,10 @@ html, body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+.content-spacer {
+	min-height: 300px;
+}
+
 .full-height {
 	height: 100%;
 }
@@ -47,6 +51,7 @@ html, body {
 
 .hero-content {
 	padding-top: 5%;
+	padding-bottom: 50px;
 	color: white;
 }
 
@@ -81,14 +86,14 @@ html, body {
 .footer-section {
 	position: absolute;
 	bottom: 0;
-	min-height: 100px;
+	min-height: 50px;
 	min-width: 100%;
 	background-color: #6c6c6c;
 	color: white;
 }
 
 .footer-content {
-	padding-top: 30px;
+	padding-top: 20px;
 }
 
 .footer-content ul li {
@@ -134,6 +139,14 @@ a.content-btn, button.content-btn {
 	padding: 5px 35px;
 }
 
+a.content-btn-danger, button.content-btn-danger {
+	border-radius: 20px;
+	background-color: #f04124;
+	color: white;
+	font-size: 20px;
+	padding: 5px 35px;
+}
+
 button.content-btn:hover {
 	background-color: #6c6c6c;
 	color: white;
@@ -150,10 +163,19 @@ button.content-btn:hover {
 	padding-right: 30px;
 }
 
-.option-btn a {
+.option-btn a, a.option-btn {
 	border-radius: 20px;
 	background-color: #cacaca;
 	color: white;
 	font-size: 20px;
 	padding: 10px 30px;
 }
+
+.option-btn-selected a {
+	border-radius: 20px;
+	background-color: #6c6c6c;
+	color: white;
+	font-size: 20px;
+	padding: 10px 30px;
+}
+

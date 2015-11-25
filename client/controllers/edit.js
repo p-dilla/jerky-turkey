@@ -31,7 +31,6 @@ angular.module('myApp').controller('editController',
 	};
 	//update list
 	$scope.updateList = function(list) {
-		debugger;
 		$http.put('/list/update/'+ list._id, list)
 		.success(function(data) {
             $location.path('/dashboard');
@@ -47,6 +46,53 @@ angular.module('myApp').controller('editController',
 		.success(function(data) {
             $location.path('/dashboard');
             console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
+
+	//delete Link
+	$scope.deleteLink = function(link) {
+		$http.delete('/link/delete/'+ link._id)
+		.success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
+
+	//delete List
+	$scope.deleteList = function(list) {
+		$http.delete('/list/delete/'+ list._id)
+		.success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
+
+	//delete Project
+	$scope.deleteProject = function(project) {
+		$http.delete('/project/delete/'+ project._id)
+		.success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+	};
+
+	//add list to Link
+	$scope.addList = function(link) {
+		$http.post('/link/updatelist/'+ link._id)
+		.success(function(data) {
+            console.log("link array updated");
         })
         .error(function(data) {
             console.log('Error: ' + data);

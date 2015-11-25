@@ -1,0 +1,40 @@
+<div class="content-header">
+    <a ng-href="/#/"><img src="/images/logo-sm.png" class="pull-left" alt="logo"></a>
+  <div ng-controller="logoutController" class="pull-right">
+    <a ng-click="logout()" href="#"> Logout</a>
+  </div>
+  <!-- <p class="pull-right">Logged in as {{currentUser.username}}</p> -->
+</div>
+<div class="container">
+  <div class="col-md-4">
+    <div class="container">
+      <h1>Project List</h1>
+      <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+      <form class="form" ng-submit="updateProject(projectForm)">
+        <div class="form-group">
+          <label>Project Title</label>
+          <input type="text" class="form-control" name="title" ng-model="projectForm.projectTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Project Description</label>
+          <input type="text" class="form-control" name="summary" ng-model="projectForm.projectSummary" required>
+        </div>
+        <div class="form-group">
+          <label>Website</label>
+          <input type="text" class="form-control" name="website" ng-model="projectForm.website" >
+        </div>
+        <div class="form-group">
+          <label>Private Project?</label>
+          <label class="radio-inline">
+            <input type="radio" name="private" ng-model="projectForm.isPrivate" ng-value="true" required> Yes
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="private" ng-model="projectForm.isPrivate" ng-value="false" required> No
+          </label>
+        </div>
+        <button type="submit" class="content-btn" ng-disabled="disabled">Save Changes</button> 
+        <button type="button" class="content-btn-danger" ng-click="deleteProject(projectForm)">Delete Link</button>
+        <a ng-href="#/dashboard" class="option-btn">Cancel</a>
+      </form>
+    </div>
+  </div>

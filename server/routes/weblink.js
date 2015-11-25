@@ -11,6 +11,8 @@ router.post('/create', function(req, res, next) {
   link.category = req.body.category;
   link.url = req.body.url;
   link.createdBy = req.body.createdBy;
+  link.lists = req.body.lists;
+  link.projects = req.body.projects;
 
   link.save(function(err){
     if(err){
@@ -51,6 +53,8 @@ router.put('/update/:weblink_id', function(req, res) {
     weblink.category = req.body.category;
     weblink.url = req.body.url;
     weblink.createdBy = req.body.createdBy;
+    weblink.lists = req.body.lists;
+    weblink.projects = req.body.projects;
 
     weblink.save(function(err){
       if(err)
@@ -59,6 +63,19 @@ router.put('/update/:weblink_id', function(req, res) {
     res.json(weblink);
     });
   });
+});
+
+//add list =============================
+router.post('/updatelist/:weblink_id', function(req, res) {
+  console.log(req.body);
+  Weblink.findByIdAndUpdate(
+    req.params.weblink_id, 
+    {$push: {lists: req.body.lists}},
+    {safe: true, upsert: true},
+    function(err, model) {
+        console.log(err);
+    }
+);
 });
 
 //remove ==================================
@@ -75,6 +92,24 @@ router.delete('/delete/:weblink_id', function(req, res) {
 router.get('/findby/:createdBy', function(req, res) {
   if (req.params.createdBy) {
     Weblink.find({ createdBy: req.params.createdBy }, function (err, weblinks) {
+        res.json(weblinks);
+    });
+  }
+});
+
+//get by list ==================================
+router.get('/findby/:list', function(req, res) {
+  if (req.params.list) {
+    Weblink.find({ list: req.params.list }, function (err, weblinks) {
+        res.json(weblinks);
+    });
+  }
+});
+
+//get by project ==================================
+router.get('/findby/:project', function(req, res) {
+  if (req.params.project) {
+    Weblink.find({ project: req.params.project }, function (err, weblinks) {
         res.json(weblinks);
     });
   }

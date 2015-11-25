@@ -1,4 +1,19 @@
-<div class="col-md-4">
+<div class="content-header">
+    <a ng-href="/#/"><img src="/images/logo-sm.png" class="pull-left" alt="logo"></a>
+  <div ng-controller="logoutController" class="pull-right">
+    <a ng-click="logout()" href="#"> Logout</a>
+  </div>
+  <!-- <p class="pull-right">Logged in as {{currentUser.username}}</p> -->
+</div>
+<div class="text-center">
+  <ul class="list-unstyled option-menu">
+    <li class="option-btn"><a ng-href="#/add-link">Create Link</a></li>
+    <li class="option-btn"><a ng-href="#/add-list">Create List</a></li>
+    <li class="option-btn-selected"><a ng-href="#/add-project">Create Project</a></li>
+  </ul>
+</div>
+<hr>
+<div class="container">
   <h1>New Project</h1>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
   <form class="form" ng-submit="addProject()">
@@ -24,7 +39,8 @@
       </label>
     </div>
     <div>
-      <button type="submit" class="btn btn-default" ng-disabled="disabled">Add Project</button>
-    </div>
+      <button type="submit" class="content-btn" ng-disabled="disabled">Add Project</button>
+      <a ng-href="#/dashboard" class="option-btn">Cancel</a>
   </form>
 </div>
+

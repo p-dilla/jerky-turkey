@@ -7,7 +7,9 @@ var Weblink = new Schema({
   	linkName: String,
 	category: String,
 	url: String,
-	createdBy: String
+	createdBy: String,
+	lists: [String],
+	projects: [String]
 });
 
 module.exports = mongoose.model('weblinks', Weblink);
