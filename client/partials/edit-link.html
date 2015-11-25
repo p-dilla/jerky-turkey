@@ -35,30 +35,6 @@
          <a ng-href="#/dashboard" class="option-btn">Cancel</a>
       </form>
     </div>
-  
-      <!-- form for adding lists -->
-      <div class="container">
-        <h1>Add Link to a List</h1>
-        <form class="form" ng-submit="addList(linkForm)">
-          <div class="form-group">
-            <label>List Title</label>
-            <input type="text" class="form-control" name="title" ng-model="linkForm.lists" required>
-          </div>
-          <button type="submit" class="content-btn" ng-disabled="disabled">Add</button>
-        </form>
-      </div>
-
-      <!-- form for adding projects -->
-      <div class="container">
-        <h1>Add Link to a Project</h1>
-        <form class="form" ng-submit="addProject(linkForm)">
-          <div class="form-group">
-            <label>Project Title</label>
-            <input type="text" class="form-control" name="title" ng-model="linkForm.lists" required>
-          </div>
-          <button type="submit" class="content-btn" ng-disabled="disabled">Add</button>
-        </form>
-      </div>
-    </div>
+  </div>
 </div>
 </div>

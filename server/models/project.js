@@ -10,10 +10,7 @@ var Project = new Schema({
     isPrivate : Boolean,
     createdBy: String,
     members: [String],
-	weblinks: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Weblink'
-	}]
+	weblinks: []
 });
 
 module.exports = mongoose.model('projects', Project);

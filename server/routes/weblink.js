@@ -66,17 +66,17 @@ router.put('/update/:weblink_id', function(req, res) {
 });
 
 //add list =============================
-router.post('/updatelist/:weblink_id', function(req, res) {
-  console.log(req.body);
-  Weblink.findByIdAndUpdate(
-    req.params.weblink_id, 
-    {$push: {lists: req.body.lists}},
-    {safe: true, upsert: true},
-    function(err, model) {
-        console.log(err);
-    }
-);
-});
+// router.post('/updatelist/:weblink_id', function(req, res) {
+//   console.log(req.body);
+//   Weblink.findByIdAndUpdate(
+//     req.params.weblink_id, 
+//     {$push: {lists: req.body.lists}},
+//     {safe: true, upsert: true},
+//     function(err, model) {
+//         console.log(err);
+//     }
+// );
+// });
 
 //remove ==================================
 router.delete('/delete/:weblink_id', function(req, res) {

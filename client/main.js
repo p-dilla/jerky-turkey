@@ -71,6 +71,16 @@ myApp.config(function ($routeProvider) {
       controller: 'editController',
       access: {restricted: false}
     })
+    .when('/add-item-list/:_id', {
+      templateUrl: 'partials/item-list.html',
+      controller: 'editController',
+      access: {restricted: false}
+    })
+    .when('/add-item-project/:_id', {
+      templateUrl: 'partials/item-project.html',
+      controller: 'editController',
+      access: {restricted: false}
+    })
     .otherwise({redirectTo: '/'});
 });
 

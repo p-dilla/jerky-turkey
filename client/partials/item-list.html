@@ -1,0 +1,31 @@
+<div class="content-header">
+    <a ng-href="/#/"><img src="/images/logo-sm.png" class="pull-left" alt="logo"></a>
+  <div ng-controller="logoutController" class="pull-right">
+    <a ng-click="logout()" href="#"> Logout</a>
+  </div>
+  <!-- <p class="pull-right">Logged in as {{currentUser.username}}</p> -->
+</div>
+<div class="container">
+  <div class="col-md-4">
+    <div class="container">
+      <h1>Add link to List</h1>
+      <!-- <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div> -->
+      <form class="form" ng-submit="addItemList(listForm, linkItem)">
+        <div class="form-group">
+          <label>Link Title</label>
+          <input type="text" class="form-control" name="title" ng-model="linkItem.linkName" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" name="description" ng-model="linkItem.linkSummary">
+        </div>
+        <div class="form-group">
+          <label>URL</label>
+          <input type="text" class="form-control" name="url" ng-model="linkItem.url" required>
+        </div>
+          <button type="submit" class="content-btn" ng-disabled="disabled">Add Link</button>
+          <a ng-href="#/dashboard" class="option-btn">Cancel</a>
+      </form>
+    </div>
+    </div>
+</div>

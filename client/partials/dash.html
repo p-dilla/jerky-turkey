@@ -22,6 +22,7 @@
 					<th>Title</th>
 					<th>Date Added</th>
 					<th></th>
+					<th></th>
 				</tr>
 				<tr ng-repeat="l in userLinks | orderBy:'-dateAdded'">
 					<td>
@@ -43,6 +44,7 @@
 					<th>Title</th>
 					<th>Date Added</th>
 					<th></th>
+					<th></th>
 				</tr>
 				<tr ng-repeat="l in userLists | orderBy:'-dateAdded'">
 					<td>
@@ -54,6 +56,9 @@
 					<td>
 						<a ng-href="#/edit-list/{{l._id}}"><img src="/images/edit-icon.png" alt="edit"></a>
 					</td>
+					<td>
+						<a ng-href="#/add-item-list/{{l._id}}"><img src="/images/add-icon.png" alt="add"></a>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -63,6 +68,7 @@
 				<tr>
 					<th>Title</th>
 					<th>Date Added</th>
+					<th></th>
 					<th></th>
 				</tr>
 				<tr ng-repeat="p in userProjects | orderBy:'-dateAdded'">
@@ -74,6 +80,9 @@
 					</td>
 					<td>
 						<a ng-href="#/edit-project/{{p._id}}"><img src="/images/edit-icon.png" alt="edit"></a>
+					</td>
+					<td>
+						<a ng-href="#/add-item-project/{{p._id}}"><img src="/images/add-icon.png" alt="add"></a>
 					</td>
 				</tr>
 			</table>

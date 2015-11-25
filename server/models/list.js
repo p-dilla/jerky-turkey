@@ -6,10 +6,7 @@ var List = new Schema({
 	dateAdded : {type: Date, default: Date.now},
   	listName: String,
 	category: String,
-	weblinks: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Weblinks'
-	}],
+	weblinks: [],
 	createdBy: String
 });
 

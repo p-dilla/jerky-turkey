@@ -1,9 +1,12 @@
-<h1>Project Detail</h1>
-<p>Title: {{projectItem.projectTitle}}</p>
-<p>Description: {{projectItem.projectSummary}}</p>
-<p>Added: {{projectItem.dateAdded}}</p>
-<p>Website: {{projectItem.website}}</p>
-<p>Created By: {{projectItem.createdBy}}</p>
-<a ng-href="#/dashboard" class="btn btn-default">Back</a>
-<a ng-href="#/edit-project/{{projectItem._id}}" class="btn btn-default">Edit</a>
+<div class="container">
+	<h1>Project Detail</h1>
+	<p>Title: {{projectItem.projectTitle}}</p>
+	<p>Description: {{projectItem.projectSummary}}</p>
+	<p>Added: {{projectItem.dateAdded}}</p>
+	<p>Website: {{projectItem.website}}</p>
+	<p>Created By: {{projectItem.createdBy}}</p>
+	<p>Links: {{projectItem.weblinks}}</p>
+	<a ng-href="#/dashboard" class="btn btn-default">Back</a>
+	<a ng-href="#/edit-project/{{projectItem._id}}" class="btn btn-default">Edit</a>
+</div>
 

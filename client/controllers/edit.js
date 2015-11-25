@@ -88,14 +88,42 @@ angular.module('myApp').controller('editController',
         })
 	};
 
-	//add list to Link
-	$scope.addList = function(link) {
-		$http.post('/link/updatelist/'+ link._id)
-		.success(function(data) {
-            console.log("link array updated");
+    //Add items==================================
+    //add to list
+    $scope.linkItem = {
+        dateAdded: Date.now,
+        linkName: '',
+        category: null,
+        url: '',
+        createdBy: 'placeholder',
+        lists: null,
+        projects: null,
+        linkSummary: ''
+    };
+    //$scope.listForm.createdBy
+    $scope.addItemList = function(list, item) {
+    	list.weblinks.push(item);
+
+        $http.put('/list/update/'+ list._id, list)
+        .success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
         })
         .error(function(data) {
             console.log('Error: ' + data);
         })
-	};
+    };
+    //add to project
+    $scope.addItemProject = function(project, item) {
+    	project.weblinks.push(item);
+    	
+        $http.put('/project/update/'+ project._id, project)
+        .success(function(data) {
+            $location.path('/dashboard');
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        })
+    };
 }]);

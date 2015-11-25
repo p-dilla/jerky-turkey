@@ -41,5 +41,4 @@ angular.module('myApp').controller('addController',
                 console.log('Error: ' + data);
             });
     };
-
 }]);

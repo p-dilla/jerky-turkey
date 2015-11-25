@@ -1,8 +1,10 @@
-<h1>Link Detail</h1>
-<p>Title: {{linkItem.linkName}}</p>
-<p>URL: {{linkItem.url}}</p>
-<p>Added: {{linkItem.dateAdded}}</p>
-<p>Category: {{linkItem.category}}</p>
-<p>Created By: {{linkItem.createdBy}}</p>
-<a ng-href="#/dashboard" class="btn btn-default">Back</a>
-<a ng-href="#/edit-link/{{linkItem._id}}" class="btn btn-default">Edit</a>
+<div class="container">
+	<h1>Link Detail</h1>
+	<p>Title: {{linkItem.linkName}}</p>
+	<p>URL: {{linkItem.url}}</p>
+	<p>Added: {{linkItem.dateAdded}}</p>
+	<p>Category: {{linkItem.category}}</p>
+	<p>Created By: {{linkItem.createdBy}}</p>
+	<a ng-href="#/dashboard" class="btn btn-default">Back</a>
+	<a ng-href="#/edit-link/{{linkItem._id}}" class="btn btn-default">Edit</a>
+</div>
