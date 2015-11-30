@@ -22,6 +22,8 @@ angular.module('myApp').controller('editController',
           });
       }
 
+    //UPDATE==========
+
     $scope.updateLink = function(link) {
         EditService.updateLink(link);
       };
@@ -32,6 +34,20 @@ angular.module('myApp').controller('editController',
 
     $scope.updateProject = function(project) {
         EditService.updateProject(project);
+      };
+
+    //DELETE=========   
+
+    $scope.deleteLink = function(link) {
+        EditService.deleteLink(link);
+      };
+
+    $scope.deleteList = function(list) {
+        EditService.deleteList(list);
+      };
+
+    $scope.deleteProject = function(project) {
+        EditService.deleteProject(project);
       };
 
  //  	//get link

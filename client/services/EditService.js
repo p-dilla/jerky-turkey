@@ -1,6 +1,7 @@
 angular.module('myApp').service('EditService', function($http, $location) {
     var vm = this;
 
+    // UPDATE=====================
     this.updateLink = function(link) {
       $http.put('/link/update/'+ link._id, link)
             .success(function (d) {
@@ -21,6 +22,35 @@ angular.module('myApp').service('EditService', function($http, $location) {
 
     this.updateProject = function(project) {
       $http.put('/project/update/'+ project._id, project)
+            .success(function (d) {
+                vm.data = d;
+                console.log(d);
+                $location.path('/dashboard');
+            });
+    };
+
+    //DELETE===================
+
+    this.deleteLink = function(link) {
+      $http.delete('/link/delete/'+ link._id)
+            .success(function (d) {
+                vm.data = d;
+                console.log(d);
+                $location.path('/dashboard');
+            });
+    };
+
+    this.deleteList = function(list) {
+      $http.delete('/list/delete/'+ list._id)
+            .success(function (d) {
+                vm.data = d;
+                console.log(d);
+                $location.path('/dashboard');
+            });
+    };
+
+    this.deleteProject = function(project) {
+      $http.delete('/project/delete/'+ project._id)
             .success(function (d) {
                 vm.data = d;
                 console.log(d);
