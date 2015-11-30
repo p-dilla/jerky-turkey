@@ -9,6 +9,46 @@ angular.module('myApp').service('FetchService', function($http) {
             });
     };
 
+    this.getLink = function(link_id) {
+        return $http.get('/link/find/'+ link_id)
+            .success(function (d) {
+                vm.data = d;
+                console.log(d);
+            });
+    };
+
+    this.getList = function(list_id) {
+        return $http.get('/list/find/'+ list_id)
+            .success(function (d) {
+                vm.data = d;
+                console.log(d);
+            });
+    };
+
+    this.getProject = function(project_id) {
+        return $http.get('/project/find/'+ project_id)
+            .success(function (d) {
+                vm.data = d;
+                console.log(d);
+            });
+    };
+
+    // this.getList = function() {
+    //     return $http.get('/user/getCurrent')
+    //         .success(function (d) {
+    //             vm.data = d;
+    //             console.log(d);
+    //         });
+    // };
+
+    // this.getProject = function() {
+    //     return $http.get('/user/getCurrent')
+    //         .success(function (d) {
+    //             vm.data = d;
+    //             console.log(d);
+    //         });
+    // };
+
     this.getLinkByUsername = function(username) {
       return $http.get('/link/findby/'+ username)
             .success(function (d) {
