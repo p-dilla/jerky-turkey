@@ -34,7 +34,6 @@ angular.module('myApp').service('FetchService', function($http) {
     };
 });
 
-
 //fetch items by User=========================================
 //-------------------------------------------
 // angular.module('myApp').factory('AppService', function($http, $q) {
