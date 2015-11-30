@@ -3,17 +3,17 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'partials/home.html',
+      templateUrl: 'views/home.html',
       controller: 'homeController',
       access: {restricted: false}
     })
     .when('/repo', {
-      templateUrl: 'partials/view-repo.html',
+      templateUrl: 'views/view-repo.html',
       controller: 'homeController',
       access: {restricted: false}
     })
     .when('/login', {
-      templateUrl: 'partials/login.html',
+      templateUrl: 'views/login.html',
       controller: 'loginController',
       access: {restricted: false}
     })
@@ -22,67 +22,67 @@ myApp.config(function ($routeProvider) {
       access: {restricted: true}
     })
     .when('/register', {
-      templateUrl: 'partials/register.html',
+      templateUrl: 'views/register.html',
       controller: 'registerController',
       access: {restricted: false}
     })
     .when('/dashboard', {
-      templateUrl: 'partials/dash.html',
+      templateUrl: 'views/dash.html',
       controller: 'dashController',
       access: {restricted: false}
     })
     .when('/add-project', {
-      templateUrl: 'partials/add-project.html',
+      templateUrl: 'views/add-project.html',
       controller: 'addController',
       access: {restricted: false}
     })
     .when('/add-list', {
-      templateUrl: 'partials/add-list.html',
+      templateUrl: 'views/add-list.html',
       controller: 'addController',
       access: {restricted: false}
     })
     .when('/add-link', {
-      templateUrl: 'partials/add-link.html',
+      templateUrl: 'views/add-link.html',
       controller: 'addController',
       access: {restricted: false}
     })
     .when('/view-link/:_id', {
-      templateUrl: 'partials/view-link.html',
+      templateUrl: 'views/view-link.html',
       controller: 'viewController',
       access: {restricted: false}
     })
     .when('/view-list/:_id', {
-      templateUrl: 'partials/view-list.html',
+      templateUrl: 'views/view-list.html',
       controller: 'viewController',
       access: {restricted: false}
     })
     .when('/view-project/:_id', {
-      templateUrl: 'partials/view-project.html',
+      templateUrl: 'views/view-project.html',
       controller: 'viewController',
       access: {restricted: false}
     })
     .when('/edit-link/:_id', {
-      templateUrl: 'partials/edit-link.html',
+      templateUrl: 'views/edit-link.html',
       controller: 'editController',
       access: {restricted: false}
     })
     .when('/edit-list/:_id', {
-      templateUrl: 'partials/edit-list.html',
+      templateUrl: 'views/edit-list.html',
       controller: 'editController',
       access: {restricted: false}
     })
     .when('/edit-project/:_id', {
-      templateUrl: 'partials/edit-project.html',
+      templateUrl: 'views/edit-project.html',
       controller: 'editController',
       access: {restricted: false}
     })
     .when('/add-item-list/:_id', {
-      templateUrl: 'partials/item-list.html',
+      templateUrl: 'views/item-list.html',
       controller: 'editController',
       access: {restricted: false}
     })
     .when('/add-item-project/:_id', {
-      templateUrl: 'partials/item-project.html',
+      templateUrl: 'views/item-project.html',
       controller: 'editController',
       access: {restricted: false}
     })
