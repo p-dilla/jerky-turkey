@@ -33,57 +33,57 @@ myApp.config(function ($routeProvider) {
     })
     .when('/add-project', {
       templateUrl: 'views/add-project.html',
-      controller: 'editController',
+      controller: 'projectController',
       access: {restricted: false}
     })
     .when('/add-list', {
       templateUrl: 'views/add-list.html',
-      controller: 'editController',
+      controller: 'listController',
       access: {restricted: false}
     })
     .when('/add-link', {
       templateUrl: 'views/add-link.html',
-      controller: 'editController',
+      controller: 'linkController',
       access: {restricted: false}
     })
     .when('/view-link/:_id', {
       templateUrl: 'views/view-link.html',
-      controller: 'viewController',
+      controller: 'linkController',
       access: {restricted: false}
     })
     .when('/view-list/:_id', {
       templateUrl: 'views/view-list.html',
-      controller: 'viewController',
+      controller: 'listController',
       access: {restricted: false}
     })
     .when('/view-project/:_id', {
       templateUrl: 'views/view-project.html',
-      controller: 'viewController',
+      controller: 'projectController',
       access: {restricted: false}
     })
     .when('/edit-link/:_id', {
       templateUrl: 'views/edit-link.html',
-      controller: 'editController',
+      controller: 'linkController',
       access: {restricted: false}
     })
     .when('/edit-list/:_id', {
       templateUrl: 'views/edit-list.html',
-      controller: 'editController',
+      controller: 'listController',
       access: {restricted: false}
     })
     .when('/edit-project/:_id', {
       templateUrl: 'views/edit-project.html',
-      controller: 'editController',
+      controller: 'projectController',
       access: {restricted: false}
     })
     .when('/add-item-list/:_id', {
       templateUrl: 'views/item-list.html',
-      controller: 'editController',
+      controller: 'listController',
       access: {restricted: false}
     })
     .when('/add-item-project/:_id', {
       templateUrl: 'views/item-project.html',
-      controller: 'editController',
+      controller: 'projectController',
       access: {restricted: false}
     })
     .otherwise({redirectTo: '/'});
