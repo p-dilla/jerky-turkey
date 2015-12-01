@@ -17,7 +17,7 @@
   <div class="col-md-4"></div>
   <h1>New Link</h1>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-  <form class="form" ng-submit="addLink()">
+  <form class="form" ng-submit="addLink(linkForm)">
     <div class="form-group">
       <label>Link Title</label>
       <input type="text" class="form-control" name="title" ng-model="linkForm.linkName" required>

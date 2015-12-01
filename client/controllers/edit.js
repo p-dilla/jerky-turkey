@@ -4,6 +4,8 @@ angular.module('myApp').controller('editController',
 
     activate();
 
+    //RETRIEVE==============
+
       function activate() {
         FetchService
           .getLink($routeParams._id)
@@ -49,6 +51,45 @@ angular.module('myApp').controller('editController',
     $scope.deleteProject = function(project) {
         EditService.deleteProject(project);
       };
+
+    //CREATE==================
+
+    $scope.addLink = function(link) {
+        link.createdBy = FetchService.getUser();
+        EditService.addLink(link);
+    };
+
+    $scope.addList = function(list) {
+        list.createdBy = FetchService.getUser();
+        EditService.addList(list);
+    };
+
+    $scope.addProject = function(project) {
+        project.createdBy = FetchService.getUser();
+        EditService.addProject(project);
+    };
+
+    $scope.linkItem = {
+        dateAdded: Date.now,
+        linkName: '',
+        category: null,
+        url: '',
+        createdBy: 'placeholder',
+        lists: null,
+        projects: null,
+        linkSummary: ''
+    };
+
+    $scope.addItemList = function(list, item) {
+        list.weblinks.push(item);
+        EditService.addItemList(list);
+    };
+
+    $scope.addItemProject = function(project, item) {
+        project.weblinks.push(item);
+        EditService.addItemProject(project);
+    };
+
 
  //  	//get link
  //  	$http.get('/link/find/'+ $routeParams._id)

@@ -33,17 +33,17 @@ myApp.config(function ($routeProvider) {
     })
     .when('/add-project', {
       templateUrl: 'views/add-project.html',
-      controller: 'addController',
+      controller: 'editController',
       access: {restricted: false}
     })
     .when('/add-list', {
       templateUrl: 'views/add-list.html',
-      controller: 'addController',
+      controller: 'editController',
       access: {restricted: false}
     })
     .when('/add-link', {
       templateUrl: 'views/add-link.html',
-      controller: 'addController',
+      controller: 'editController',
       access: {restricted: false}
     })
     .when('/view-link/:_id', {

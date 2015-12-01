@@ -17,7 +17,7 @@
   <div class="col-md-4"></div>
   <h1>New List</h1>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-  <form class="form" ng-submit="addList()">
+  <form class="form" ng-submit="addList(listForm)">
   <div class="form-group">
       <label>List Title</label>
       <input type="text" class="form-control" name="title" ng-model="listForm.listName" required>
