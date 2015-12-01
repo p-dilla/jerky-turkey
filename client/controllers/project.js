@@ -2,9 +2,9 @@ angular.module('myApp').controller('projectController',
   ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService',
   function ($scope, $http, $location, $routeParams, FetchService, EditService) {
 
-    activate();
-
-    //RETRIEVE==============
+    if($location.path() !== '/add-project'){
+      activate();
+      //RETRIEVE==============
 
       function activate() {
         FetchService
@@ -14,6 +14,7 @@ angular.module('myApp').controller('projectController',
             $scope.projectItem = FetchService.data;
           });
       }
+    }
 
     //UPDATE==========
 

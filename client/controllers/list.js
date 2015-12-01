@@ -2,9 +2,9 @@ angular.module('myApp').controller('listController',
   ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService',
   function ($scope, $http, $location, $routeParams, FetchService, EditService) {
 
-    activate();
-
-    //RETRIEVE==============
+    if($location.path() !== '/add-list'){
+      activate();
+      //RETRIEVE==============
 
       function activate() {
         FetchService
@@ -14,7 +14,8 @@ angular.module('myApp').controller('listController',
             $scope.listItem = FetchService.data;
           });
       }
-
+    }
+    
     //UPDATE==========
 
     $scope.updateList = function(list) {

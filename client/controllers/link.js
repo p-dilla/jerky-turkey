@@ -1,10 +1,10 @@
 angular.module('myApp').controller('linkController',
   ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService',
   function ($scope, $http, $location, $routeParams, FetchService, EditService) {
-    
-      activate();
 
-    //RETRIEVE==============
+    if($location.path() !== '/add-link'){
+      activate();
+      //RETRIEVE==============
 
       function activate() {
         FetchService
@@ -14,7 +14,7 @@ angular.module('myApp').controller('linkController',
             $scope.linkItem = FetchService.data;
           });
       }
-
+    }
     //UPDATE==========
 
     $scope.updateLink = function(link) {
