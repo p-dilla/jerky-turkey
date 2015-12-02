@@ -31,8 +31,11 @@ angular.module('myApp').controller('projectController',
     //CREATE==================
 
     $scope.addProject = function(project) {
-        project.createdBy = FetchService.getUser();
-        EditService.addProject(project);
+      FetchService.getUser()
+        .then(function() {
+          project.createdBy = FetchService.data.username;
+          EditService.addProject(project);
+        });
     };
 
     $scope.linkItem = {

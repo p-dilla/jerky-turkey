@@ -31,8 +31,11 @@ angular.module('myApp').controller('listController',
     //CREATE==================
 
     $scope.addList = function(list) {
-        list.createdBy = FetchService.getUser();
-        EditService.addList(list);
+        FetchService.getUser()
+          .then(function() {
+            list.createdBy = FetchService.data.username;
+            EditService.addList(list);
+          });
     };
 
     $scope.linkItem = {

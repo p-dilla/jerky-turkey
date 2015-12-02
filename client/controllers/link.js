@@ -5,7 +5,6 @@ angular.module('myApp').controller('linkController',
     if($location.path() !== '/add-link'){
       activate();
       //RETRIEVE==============
-
       function activate() {
         FetchService
           .getLink($routeParams._id)
@@ -15,8 +14,8 @@ angular.module('myApp').controller('linkController',
           });
       }
     }
-    //UPDATE==========
 
+    //UPDATE==========
     $scope.updateLink = function(link) {
         EditService.updateLink(link);
       };
@@ -32,9 +31,9 @@ angular.module('myApp').controller('linkController',
     $scope.addLink = function(link) {
         FetchService.getUser()
           .then(function() {
-            link.createdBy = FetchService.data;
+            link.createdBy = FetchService.data.username;
             EditService.addLink(link);
           });
-    };
+      };
 
 }]);
