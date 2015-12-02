@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var Project = new Schema({
-	dateAdded : {type: Date, default: Date.now},
+	dateAdded : String,
   	projectTitle : String,
     projectSummary : String,
     website: String,

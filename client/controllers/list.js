@@ -1,11 +1,10 @@
 angular.module('myApp').controller('listController',
-  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService',
-  function ($scope, $http, $location, $routeParams, FetchService, EditService) {
+  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService', 'moment',
+  function ($scope, $http, $location, $routeParams, FetchService, EditService, moment) {
 
     if($location.path() !== '/add-list'){
       activate();
       //RETRIEVE==============
-
       function activate() {
         FetchService
           .getList($routeParams._id)
@@ -17,19 +16,16 @@ angular.module('myApp').controller('listController',
     }
     
     //UPDATE==========
-
     $scope.updateList = function(list) {
         EditService.updateList(list);
       };
 
     //DELETE=========   
-
     $scope.deleteList = function(list) {
         EditService.deleteList(list);
       };
 
     //CREATE==================
-
     $scope.addList = function(list) {
         FetchService.getUser()
           .then(function() {

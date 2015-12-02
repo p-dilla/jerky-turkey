@@ -1,11 +1,10 @@
 angular.module('myApp').controller('projectController',
-  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService',
-  function ($scope, $http, $location, $routeParams, FetchService, EditService) {
+  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService', 'moment',
+  function ($scope, $http, $location, $routeParams, FetchService, EditService, moment) {
 
     if($location.path() !== '/add-project'){
       activate();
       //RETRIEVE==============
-
       function activate() {
         FetchService
           .getProject($routeParams._id)
@@ -17,19 +16,16 @@ angular.module('myApp').controller('projectController',
     }
 
     //UPDATE==========
-
     $scope.updateProject = function(project) {
         EditService.updateProject(project);
       };
 
     //DELETE=========   
-
     $scope.deleteProject = function(project) {
         EditService.deleteProject(project);
       };
 
     //CREATE==================
-
     $scope.addProject = function(project) {
       FetchService.getUser()
         .then(function() {

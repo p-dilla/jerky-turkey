@@ -29,6 +29,27 @@ angular.module('myApp').service('FetchService', function($http) {
             });
     };
 
+    this.getAllLinks = function() {
+        return $http.get('/link/findall/')
+            .success(function (d) {
+                vm.data = d;
+            });
+    };
+
+    this.getAllLists = function() {
+        return $http.get('/list/findall/')
+            .success(function (d) {
+                vm.data = d;
+            });
+    };
+
+    this.getAllProjects = function() {
+        return $http.get('/project/findall/')
+            .success(function (d) {
+                vm.data = d;
+            });
+    };
+
     this.getLinkByUsername = function(username) {
       return $http.get('/link/findby/'+ username)
             .success(function (d) {

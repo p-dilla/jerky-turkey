@@ -1,23 +1,27 @@
 angular.module('myApp').controller('homeController',
-  ['$scope', '$http', '$location', 
-  function ($scope, $http, $location) {
-  	//get all links
-  	$http.get('/link/findall/')
-		.success(function(response) {  
-			$scope.linkList = response;
-		})
+  ['$scope', '$http', '$location', 'FetchService', 
+  function ($scope, $http, $location, FetchService) {
 
-	//get all lists
-  	$http.get('/list/findall/')
-		.success(function(response) {  
-			$scope.listList = response;
-		})
+  	activate();
+      //RETRIEVE==============
+	  function activate() {
+	    FetchService
+	      .getAllLinks()
+	      .then(function() {
+	        $scope.linkList = FetchService.data;
+	      });
 
+	    FetchService
+	      .getAllLists()
+	      .then(function() {
+	        $scope.listList = FetchService.data;
+	      });
 
-	//get all projects
-  	$http.get('/project/findall/')
-		.success(function(response) {  
-			$scope.projectList = response;
-		})
+	    FetchService
+	      .getAllProjects()
+	      .then(function() {
+	        $scope.projectList = FetchService.data;
+	      });
+	  }
 
   }]);
