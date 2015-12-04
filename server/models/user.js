@@ -8,9 +8,16 @@ var User = new Schema({
   username: String,
   password: String,
   email: String,
+  favorites: [{
+  		linkName: String,
+  		link_id: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Weblink'
+		}
+  }],
   listSubs: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'List'
+  		listName: String,
+  		list_id: String
 	}],
 	projects: [{
 		type: mongoose.Schema.Types.ObjectId,
