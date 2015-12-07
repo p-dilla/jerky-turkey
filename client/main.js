@@ -1,99 +1,105 @@
-var myApp = angular.module('myApp', ['ngRoute', 'angularMoment']);
+var myApp = angular.module('myApp', ['ui.router', 'angularMoment']);
 
-myApp.config(function ($routeProvider) {
-  $routeProvider
-    .when('/', {
+myApp.config(function ($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/');  
+  $stateProvider
+    .state('home', {
+      url: '/',
       templateUrl: 'views/home.html',
-      controller: 'homeController',
-      access: {restricted: false}
+      controller: 'homeController'
     })
-    .when('/repo', {
+    .state('repo', {
+      url: '/repo',
       templateUrl: 'views/view-repo.html',
-      controller: 'homeController',
-      access: {restricted: false}
+      controller: 'homeController'
     })
-    .when('/login', {
+    .state('login', {
+      url: '/login',
       templateUrl: 'views/login.html',
-      controller: 'loginController',
-      access: {restricted: false}
+      controller: 'loginController'
     })
-    .when('/logout', {
-      controller: 'logoutController',
-      access: {restricted: true}
+    .state('logout', {
+      url: '/logout',
+      controller: 'logoutController'
     })
-    .when('/register', {
+    .state('register', {
+      url: '/register',
       templateUrl: 'views/register.html',
-      controller: 'registerController',
-      access: {restricted: false}
+      controller: 'registerController'
     })
-    .when('/dashboard', {
-      templateUrl: 'views/dash.html',
-      controller: 'dashController',
-      access: {restricted: false}
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'views/dashboard.html',
+      controller: 'dashController'
     })
-    .when('/add-project', {
-      templateUrl: 'views/add-project.html',
-      controller: 'projectController',
-      access: {restricted: false}
+    .state('dashboard.view-dash', {
+      url: '/view-dash',
+      templateUrl: 'views/dashboard.view-dash.html',
+      controller: 'dashController'
     })
-    .when('/add-list', {
-      templateUrl: 'views/add-list.html',
-      controller: 'listController',
-      access: {restricted: false}
+    .state('dashboard.add-project', {
+      url: '/add-project',
+      templateUrl: 'views/dashboard.add-project.html',
+      controller: 'projectController'
     })
-    .when('/add-link', {
-      templateUrl: 'views/add-link.html',
-      controller: 'linkController',
-      access: {restricted: false}
+    .state('dashboard.add-list', {
+      url: '/add-list',
+      templateUrl: 'views/dashboard.add-list.html',
+      controller: 'listController'
     })
-    .when('/view-link/:_id', {
-      templateUrl: 'views/view-link.html',
-      controller: 'linkController',
-      access: {restricted: false}
+    .state('dashboard.add-link', {
+      url: '/add-link',
+      templateUrl: 'views/dashboard.add-link.html',
+      controller: 'linkController'
     })
-    .when('/view-list/:_id', {
-      templateUrl: 'views/view-list.html',
-      controller: 'listController',
-      access: {restricted: false}
+    .state('dashboard.view-link', {
+      url: '/view-link/:_id',
+      templateUrl: 'views/dashboard.view-link.html',
+      controller: 'linkController'
     })
-    .when('/view-project/:_id', {
-      templateUrl: 'views/view-project.html',
-      controller: 'projectController',
-      access: {restricted: false}
+    .state('dashboard.view-list', {
+      url: '/view-list/:_id',
+      templateUrl: 'views/dashboard.view-list.html',
+      controller: 'listController'
     })
-    .when('/edit-link/:_id', {
-      templateUrl: 'views/edit-link.html',
-      controller: 'linkController',
-      access: {restricted: false}
+    .state('dashboard.view-project', {
+      url: '/view-project/:_id',
+      templateUrl: 'views/dashboard.view-project.html',
+      controller: 'projectController'
     })
-    .when('/edit-list/:_id', {
-      templateUrl: 'views/edit-list.html',
-      controller: 'listController',
-      access: {restricted: false}
+    .state('dashboard.edit-link', {
+      url: '/edit-link/:_id',
+      templateUrl: 'views/dashboard.edit-link.html',
+      controller: 'linkController'
     })
-    .when('/edit-project/:_id', {
-      templateUrl: 'views/edit-project.html',
-      controller: 'projectController',
-      access: {restricted: false}
+    .state('dashboard.edit-list', {
+      url: '/edit-list/:_id',
+      templateUrl: 'views/dashboard.edit-list.html',
+      controller: 'listController'
     })
-    .when('/add-item-list/:_id', {
-      templateUrl: 'views/item-list.html',
-      controller: 'listController',
-      access: {restricted: false}
+    .state('dashboard.edit-project', {
+      url: '/edit-project/:_id',
+      templateUrl: 'views/dashboard.edit-project.html',
+      controller: 'projectController'
     })
-    .when('/add-item-project/:_id', {
-      templateUrl: 'views/item-project.html',
-      controller: 'projectController',
-      access: {restricted: false}
+    .state('dashboard.add-item-list', {
+      url: '/add-item-list/:_id',
+      templateUrl: 'views/dashboard.item-list.html',
+      controller: 'listController'
     })
-    .otherwise({redirectTo: '/'});
+    .state('dashboard.add-item-project', {
+      url: '/add-item-project/:_id',
+      templateUrl: 'views/dashboard.item-project.html',
+      controller: 'projectController'
+    })
 });
 
-myApp.run(function ($rootScope, $location, $route, AuthService) {
-  $rootScope.$on('$routeChangeStart', function (event, next, current) {
-    if (next.access.restricted && AuthService.isLoggedIn() === false) {
-      $location.path('/login');
-      $route.reload();
-    }
-  });
-});
+// myApp.run(function ($rootScope, $location, $route, AuthService) {
+//   $rootScope.$on('$routeChangeStart', function (event, next, current) {
+//     if (next.access.restricted && AuthService.isLoggedIn() === false) {
+//       $location.path('/login');
+//       $route.reload();
+//     }
+//   });
+// });

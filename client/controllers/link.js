@@ -1,13 +1,13 @@
 angular.module('myApp').controller('linkController',
-  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService', 'moment',
-  function ($scope, $http, $location, $routeParams, FetchService, EditService, moment) {
-    console.log(new moment());
-    if($location.path() !== '/add-link'){
+  ['$scope', '$http', '$location', '$stateParams', 'FetchService', 'EditService', 'moment',
+  function ($scope, $http, $location, $stateParams, FetchService, EditService, moment) {
+    console.log($location.path());
+    if($location.path() !== '/dashboard/add-link'){
       activate();
       //RETRIEVE==============
       function activate() {
         FetchService
-          .getLink($routeParams._id)
+          .getLink($stateParams._id)
           .then(function(){
             $scope.linkForm = FetchService.data;
             $scope.linkItem = FetchService.data;

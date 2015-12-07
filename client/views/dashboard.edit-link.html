@@ -1,13 +1,4 @@
-<div class="content-header">
-    <a ng-href="/#/"><img src="/images/logo-sm.png" class="pull-left" alt="logo"></a>
-  <div ng-controller="logoutController" class="pull-right">
-    <a ng-click="logout()" href="#"> Logout</a>
-  </div>
-  <!-- <p class="pull-right">Logged in as {{currentUser.username}}</p> -->
-</div>
-<div class="container">
-  <div class="col-md-4">
-    <div class="container">
+  <div class="col-md-4"></div>
       <h1>Edit Link</h1>
       <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
       <!-- edit form info  -->
@@ -32,9 +23,5 @@
         </div>
         <button type="submit" class="content-btn" >Save Changes</button> 
         <button type="button" class="content-btn-danger" ng-click="deleteLink(linkForm)">Delete Link</button>
-         <a ng-href="#/dashboard" class="option-btn">Cancel</a>
+         <a ui-sref="dashboard.view-dash" class="option-btn">Cancel</a>
       </form>
-    </div>
-  </div>
-</div>
-</div>

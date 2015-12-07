@@ -1,0 +1,19 @@
+<div class="content-header">
+  	<a ng-href="/#/"><img src="/images/logo-sm.png" class="pull-left" alt="logo"></a> 
+	<div ng-controller="logoutController" class="pull-right">
+		<a ng-click="logout()" href="#"> Logout</a>
+	</div>
+	<p class="pull-right">Logged in as {{currentUser.username}}</p>
+</div>
+<div class="text-center">
+	<ul class="list-unstyled option-menu">
+    	<li class="option-btn"><a href="#" ui-sref="dashboard.add-link">Create Link</a></li>
+    	<li class="option-btn"><a href="#" ui-sref="dashboard.add-list">Create List</a></li>
+    	<li class="option-btn"><a href="#" ui-sref="dashboard.add-project">Create Project</a></li>
+	</ul>
+</div>
+<hr>
+<div class="container">
+	<div ui-view></div>
+</div>
+

@@ -1,13 +1,13 @@
 angular.module('myApp').controller('projectController',
-  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService', 'moment',
-  function ($scope, $http, $location, $routeParams, FetchService, EditService, moment) {
+  ['$scope', '$http', '$location', '$stateParams', 'FetchService', 'EditService', 'moment',
+  function ($scope, $http, $location, $stateParams, FetchService, EditService, moment) {
 
-    if($location.path() !== '/add-project'){
+    if($location.path() !== '/dashboard/add-project'){
       activate();
       //RETRIEVE==============
       function activate() {
         FetchService
-          .getProject($routeParams._id)
+          .getProject($stateParams._id)
           .then(function(){
             $scope.projectForm = FetchService.data;
             $scope.projectItem = FetchService.data;

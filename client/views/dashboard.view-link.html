@@ -1,3 +1,4 @@
+ <div class="col-md-4"></div>
 <div class="container">
 	<h1>Link Detail</h1>
 	<p>Title: {{linkItem.linkName}}</p>
@@ -5,7 +6,7 @@
 	<p>Added: {{linkItem.dateAdded}}</p>
 	<!-- <p>Category: {{linkItem.category}}</p> -->
 	<p>Created By: {{linkItem.createdBy}}</p>
-	<a ng-href="#/dashboard" class="btn btn-default">Back</a>
+	<a ui-sref="dashboard.view-dash" class="btn btn-default">Back</a>
 	<a ng-href="#/dashboard" class="btn btn-default">Fav</a>
 	<a ng-href="#/edit-link/{{linkItem._id}}" class="btn btn-default">Edit</a>
 </div>

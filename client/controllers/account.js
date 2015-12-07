@@ -14,7 +14,7 @@ angular.module('myApp').controller('loginController',
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
-          $location.path('/dashboard');
+          $location.path('/dashboard/view-dash');
           $scope.disabled = false;
           $scope.loginForm = {};
         })
@@ -61,7 +61,7 @@ angular.module('myApp').controller('registerController',
       AuthService.register($scope.registerForm.username, $scope.registerForm.password)
         // handle success
         .then(function () {
-          $location.path('/dashboard');
+          $location.path('/dashboard/view-dash');
           $scope.disabled = false;
           $scope.registerForm = {};
         })

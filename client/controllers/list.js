@@ -1,13 +1,13 @@
 angular.module('myApp').controller('listController',
-  ['$scope', '$http', '$location', '$routeParams', 'FetchService', 'EditService', 'moment',
-  function ($scope, $http, $location, $routeParams, FetchService, EditService, moment) {
+  ['$scope', '$http', '$location', '$stateParams', 'FetchService', 'EditService', 'moment',
+  function ($scope, $http, $location, $stateParams, FetchService, EditService, moment) {
 
-    if($location.path() !== '/add-list'){
+    if($location.path() !== '/dashboard/add-list'){
       activate();
       //RETRIEVE==============
       function activate() {
         FetchService
-          .getList($routeParams._id)
+          .getList($stateParams._id)
           .then(function(){
             $scope.listForm = FetchService.data;
             $scope.listItem = FetchService.data;

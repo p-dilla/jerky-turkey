@@ -6,7 +6,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
       $http.put('/link/update/'+ link._id, link)
             .success(function (d) {
                 vm.data = d;
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -17,7 +17,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
       $http.put('/list/update/'+ list._id, list)
             .success(function (d) {
                 vm.data = d;
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -28,7 +28,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
       $http.put('/project/update/'+ project._id, project)
             .success(function (d) {
                 vm.data = d;
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -41,7 +41,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
       $http.delete('/link/delete/'+ link._id)
             .success(function (d) {
                 vm.data = d;
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -52,7 +52,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
       $http.delete('/list/delete/'+ list._id)
             .success(function (d) {
                 vm.data = d;
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -63,7 +63,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
       $http.delete('/project/delete/'+ project._id)
             .success(function (d) {
                 vm.data = d;
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -75,7 +75,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
     this.addLink = function(link) {
         $http.post('/link/create', link)
             .success(function(data) {
-                $location.path('/dashboard'); 
+                $location.path('/dashboard/view-dash'); 
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -85,7 +85,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
     this.addList = function(list) {
         $http.post('/list/create', list)
             .success(function(data) {
-                $location.path('/dashboard'); 
+                $location.path('/dashboard/view-dash'); 
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -95,7 +95,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
     this.addProject = function(project) {
         $http.post('/project/create', project)
             .success(function(data) {
-                $location.path('/dashboard'); 
+                $location.path('/dashboard/view-dash'); 
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -107,7 +107,7 @@ angular.module('myApp').service('EditService', function($http, $location) {
     this.addItemList = function(list) {
         $http.put('/list/update/'+ list._id, list)
             .success(function(data) {
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -117,60 +117,10 @@ angular.module('myApp').service('EditService', function($http, $location) {
     this.addItemProject = function(project) {
         $http.put('/project/update/'+ project._id, project)
             .success(function(data) {
-                $location.path('/dashboard');
+                $location.path('/dashboard/view-dash');
             })
             .error(function(data) {
                 console.log('Error: ' + data);
             })
     };
-
-
-    // this.updateProject = function(project) {
-    //   return $http.get('/project/findby/'+ username)
-    //         .success(function (d) {
-    //             vm.data = d;
-    //             console.log(d);
-    //         });
-    // };
-
-    // this.deleteLink = function(link) {
-    //   return $http.get('/project/findby/'+ username)
-    //         .success(function (d) {
-    //             vm.data = d;
-    //             console.log(d);
-    //         });
-    // };
-
-    // this.deleteList = function(list) {
-    //   return $http.get('/project/findby/'+ username)
-    //         .success(function (d) {
-    //             vm.data = d;
-    //             console.log(d);
-    //         });
-    // };
-
-    // this.deleteProject = function(project) {
-    //   return $http.get('/project/findby/'+ username)
-    //         .success(function (d) {
-    //             vm.data = d;
-    //             console.log(d);
-    //         });
-    // };
-
-    // this.addItemList = function(list, item) {
-    //   return $http.get('/list/update/'+ list._id, list)
-    //         .success(function (d) {
-    //             vm.data = d;
-    //             console.log(d);
-    //         });
-    // };
-
-    // this.addItemProject = function(project, item) {
-    //   return $http.get('/project/update/'+ project._id, project)
-    //         .success(function (d) {
-    //             vm.data = d;
-    //             console.log(d);
-    //         });
-    // };
-
 });
