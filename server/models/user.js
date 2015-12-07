@@ -3,29 +3,30 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     passportLocalMongoose = require('passport-local-mongoose');
 
-
 var User = new Schema({
   username: String,
   password: String,
   email: String,
-  favorites: [{
-  		linkName: String,
-  		link_id: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'Weblink'
-		}
-  }],
-  listSubs: [{
+  	listSubs: [{
   		listName: String,
-  		list_id: String
+  		list_id: {
+  			type: mongoose.Schema.Types.ObjectId,
+  			ref: 'List'
+  		}
 	}],
 	projects: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Project'
+  		projectName: String,
+  		list_id: {
+  			type: mongoose.Schema.Types.ObjectId,
+  			ref: 'Project'
+  		}
 	}],
 	weblinks: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Weblink'
+  		linkName: String,
+  		link_id: {
+  			type: mongoose.Schema.Types.ObjectId,
+  			ref: 'Weblink'
+  		}
 	}]
 });
 
