@@ -53,6 +53,21 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/dashboard.add-link.html',
       controller: 'linkController'
     })
+    .state('dashboard.delete-project', {
+      url: '/delete-project/:_id',
+      templateUrl: 'views/dashboard.delete-project.html',
+      controller: 'projectController'
+    })
+    .state('dashboard.delete-list', {
+      url: '/delete-list/:_id',
+      templateUrl: 'views/dashboard.delete-list.html',
+      controller: 'listController'
+    })
+    .state('dashboard.delete-link', {
+      url: '/delete-link/:_id',
+      templateUrl: 'views/dashboard.delete-link.html',
+      controller: 'linkController'
+    })
     .state('dashboard.view-link', {
       url: '/view-link/:_id',
       templateUrl: 'views/dashboard.view-link.html',

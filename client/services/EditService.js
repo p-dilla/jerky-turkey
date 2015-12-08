@@ -37,8 +37,8 @@ angular.module('myApp').service('EditService', function($http, $location) {
 
     //DELETE===================
 
-    this.deleteLink = function(link) {
-      $http.delete('/link/delete/'+ link._id)
+    this.deleteLink = function(link_id) {
+      $http.delete('/link/delete/'+ link_id)
             .success(function (d) {
                 vm.data = d;
                 $location.path('/dashboard/view-dash');
@@ -48,8 +48,8 @@ angular.module('myApp').service('EditService', function($http, $location) {
             })
     };
 
-    this.deleteList = function(list) {
-      $http.delete('/list/delete/'+ list._id)
+    this.deleteList = function(list_id) {
+      $http.delete('/list/delete/'+ list_id)
             .success(function (d) {
                 vm.data = d;
                 $location.path('/dashboard/view-dash');
@@ -59,8 +59,8 @@ angular.module('myApp').service('EditService', function($http, $location) {
             })
     };
 
-    this.deleteProject = function(project) {
-      $http.delete('/project/delete/'+ project._id)
+    this.deleteProject = function(project_id) {
+      $http.delete('/project/delete/'+ project_id)
             .success(function (d) {
                 vm.data = d;
                 $location.path('/dashboard/view-dash');

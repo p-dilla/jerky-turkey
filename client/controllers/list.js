@@ -11,6 +11,7 @@ angular.module('myApp').controller('listController',
           .then(function(){
             $scope.listForm = FetchService.data;
             $scope.listItem = FetchService.data;
+            $scope.displayDate = moment($scope.listItem.dateAdded).format('MM/DD/YYYY');
           });
       }
     }

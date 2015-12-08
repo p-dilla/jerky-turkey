@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var List = new Schema({
-	dateAdded : String,
+	dateAdded : {type: Date, default: Date.now},
   	listName: String,
 	category: String,
 	weblinks: [],

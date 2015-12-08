@@ -11,6 +11,7 @@ angular.module('myApp').controller('projectController',
           .then(function(){
             $scope.projectForm = FetchService.data;
             $scope.projectItem = FetchService.data;
+            $scope.displayDate = moment($scope.projectItem.dateAdded).format('MM/DD/YYYY');
           });
       }
     }

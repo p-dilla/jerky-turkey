@@ -11,6 +11,7 @@ angular.module('myApp').controller('linkController',
           .then(function(){
             $scope.linkForm = FetchService.data;
             $scope.linkItem = FetchService.data;
+            $scope.displayDate = moment($scope.linkItem.dateAdded).format('MM/DD/YYYY');
           });
       }
     }
@@ -30,7 +31,6 @@ angular.module('myApp').controller('linkController',
         FetchService.getUser()
           .then(function() {
             link.createdBy = FetchService.data.username;
-            link.dateAdded = new moment();
             EditService.addLink(link);
           });
       };

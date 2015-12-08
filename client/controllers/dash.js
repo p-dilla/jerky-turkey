@@ -3,6 +3,7 @@ angular.module('myApp').controller('dashController',
   function ($scope, $http, FetchService) {
       
       activate();
+      $scope.deleteItem = false;
 
       function activate() {
         FetchService
@@ -37,5 +38,9 @@ angular.module('myApp').controller('dashController',
           .then(function () {
               $scope.userProjects = FetchService.data;
           });
+      }
+
+      $scope.toggleDeletePrompt = function() {
+        $scope.deleteItem = $scope.deleteItem ? false : true;
       }
 }]);

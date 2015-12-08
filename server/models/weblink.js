@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var Weblink = new Schema({
-	dateAdded : String,
+	dateAdded : {type: Date, default: Date.now},
   	linkName: String,
 	category: String,
 	url: String,
