@@ -10,13 +10,13 @@
         </tr>
         <tr ng-repeat="l in userLinks | orderBy:'-dateAdded'">
           <td>
-            <a href="#" ui-sref="dashboard.view-link({_id: {{l._id}}})">{{l.linkName}}</a>
+            <a href="#" ui-sref="dashboard.view-link({_id: l._id})">{{l.linkName}}</a>
           </td>
           <td>
             {{l.dateAdded}}
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.edit-link({_id: {{l._id}}})"><img src="/images/edit-icon.png" alt="edit"></a>
+            <a href="#" ui-sref="dashboard.edit-link({_id: l._id})"><img src="/images/edit-icon.png" alt="edit"></a>
           </td>
           <td>
             <a href="http://{{l.url}}">Visit</a>
@@ -35,16 +35,16 @@
         </tr>
         <tr ng-repeat="l in userLists | orderBy:'-dateAdded'">
           <td>
-            <a href="#" ui-sref="dashboard.view-list({_id: {{l._id}}})">{{l.listName}}</a>
+            <a href="#" ui-sref="dashboard.view-list({_id: l._id})">{{l.listName}}</a>
           </td>
           <td>
             {{l.dateAdded}}
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.edit-list({_id: {{l._id}}})"><img src="/images/edit-icon.png" alt="edit"></a>
+            <a href="#" ui-sref="dashboard.edit-list({_id: l._id})"><img src="/images/edit-icon.png" alt="edit"></a>
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.add-item-list({_id: {{l._id}}})"><img src="/images/add-icon.png" alt="add"></a>
+            <a href="#" ui-sref="dashboard.add-item-list({_id: l._id})"><img src="/images/add-icon.png" alt="add"></a>
           </td>
         </tr>
       </table>
@@ -60,16 +60,16 @@
         </tr>
         <tr ng-repeat="p in userProjects | orderBy:'-dateAdded'">
           <td>
-            <a href="#" ui-sref="dashboard.view-project({_id: {{p._id}}})">{{p.projectTitle}}</a>
+            <a href="#" ui-sref="dashboard.view-project({_id: p._id})">{{p.projectTitle}}</a>
           </td>
           <td>
             {{p.dateAdded}}
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.edit-project({_id: {{p._id}}})"><img src="/images/edit-icon.png" alt="edit"></a>
+            <a href="#" ui-sref="dashboard.edit-project({_id: p._id})"><img src="/images/edit-icon.png" alt="edit"></a>
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.add-item-project({_id: {{p._id}}})"><img src="/images/add-icon.png" alt="add"></a>
+            <a href="#" ui-sref="dashboard.add-item-project({_id: p._id})"><img src="/images/add-icon.png" alt="add"></a>
           </td>
         </tr>
       </table>
