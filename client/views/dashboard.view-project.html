@@ -7,7 +7,7 @@
 	<p>Website: {{projectItem.website}}</p>
 	<p>Created By: {{projectItem.createdBy}}</p>
 	<p>Links: {{projectItem.weblinks}}</p>
-	<a ui-sref="dashboard.view-dash" class="btn btn-default">Back</a>
-	<a ng-href="#/edit-project/{{projectItem._id}}" class="btn btn-default">Edit</a>
+	<a ui-sref="dashboard.view-dash" class="content-btn">Back</a>
+	<a ui-sref="dashboard.edit-project({_id: projectItem._id})" class="content-btn">Edit</a>
 </div>
 

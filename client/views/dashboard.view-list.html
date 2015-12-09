@@ -1,4 +1,4 @@
- <div class="col-md-4"></div>
+<div class="col-md-4"></div>
 <div class="container">
 	<h1>List Detail</h1>
 	<p>Title: {{listItem.listName}}</p>
@@ -6,6 +6,6 @@
 	<!-- <p>Category: {{listItem.category}}</p> -->
 	<p>Created By: {{listItem.createdBy}}</p>
 	<p>Links: {{listItem.weblinks}}</p>
-	<a ui-sref="dashboard.view-dash" class="btn btn-default">Back</a>
-	<a ng-href="#/edit-list/{{listItem._id}}" class="btn btn-default">Edit</a>
+	<a ui-sref="dashboard.view-dash" class="content-btn">Back</a>
+	<a ui-sref="dashboard.edit-list({_id: listItem._id})" class="content-btn">Edit</a>
 </div>

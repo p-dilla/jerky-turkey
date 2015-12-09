@@ -6,7 +6,7 @@
 	<p>Added: {{displayDate}}</p>
 	<!-- <p>Category: {{linkItem.category}}</p> -->
 	<p>Created By: {{linkItem.createdBy}}</p>
-	<a ui-sref="dashboard.view-dash" class="btn btn-default">Back</a>
-	<a ng-href="#/dashboard" class="btn btn-default">Fav</a>
-	<a ng-href="#/edit-link/{{linkItem._id}}" class="btn btn-default">Edit</a>
+	<a ui-sref="dashboard.view-dash" class="content-btn">Back</a>
+	<a ng-href="#/dashboard" class="content-btn">Fav</a>
+	<a ui-sref="dashboard.edit-link({_id: linkItem._id})" class="content-btn">Edit</a>
 </div>
