@@ -8,7 +8,7 @@
           <th></th>
           <th></th>
         </tr>
-        <tr ng-repeat="l in userLinks | orderBy:'-dateAdded'">
+        <tr dir-paginate="l in userLinks | orderBy:'-dateAdded' | itemsPerPage: 5" pagination-id="link">
           <td>
             <a href="#" ui-sref="dashboard.view-link({_id: l._id})">{{l.linkName}}</a>
           </td>
@@ -23,6 +23,7 @@
           </td>
         </tr>
       </table>
+        <dir-pagination-controls pagination-id="link"></dir-pagination-controls>
     </div>
     <div class="col-md-4">
       <h3>My Lists</h3>
@@ -33,7 +34,7 @@
           <th></th>
           <th></th>
         </tr>
-        <tr ng-repeat="l in userLists | orderBy:'-dateAdded'">
+        <tr dir-paginate="l in userLists | orderBy:'-dateAdded' | itemsPerPage: 5" pagination-id="list">
           <td>
             <a href="#" ui-sref="dashboard.view-list({_id: l._id})">{{l.listName}}</a>
           </td>
@@ -48,6 +49,7 @@
           </td>
         </tr>
       </table>
+        <dir-pagination-controls pagination-id="list"></dir-pagination-controls>
     </div>
     <div class="col-md-4">
       <h3>My Projects</h3>
@@ -58,7 +60,7 @@
           <th></th>
           <th></th>
         </tr>
-        <tr ng-repeat="p in userProjects | orderBy:'-dateAdded'">
+        <tr dir-paginate="p in userProjects | orderBy:'-dateAdded' | itemsPerPage: 5" pagination-id="project">
           <td>
             <a href="#" ui-sref="dashboard.view-project({_id: p._id})">{{p.projectTitle}}</a>
           </td>
@@ -73,5 +75,6 @@
           </td>
         </tr>
       </table>
+        <dir-pagination-controls pagination-id="project"></dir-pagination-controls>
     </div>
   </div>

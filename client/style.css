@@ -179,3 +179,7 @@ button.content-btn:hover {
 	padding: 10px 30px;
 }
 
+/*overrides*/
+.pagination .active a, .pagination .active a:hover {
+	background-color: #1d976c !important;
+}

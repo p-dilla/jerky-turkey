@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router', 'angularMoment']);
+var myApp = angular.module('myApp', ['ui.router', 'angularMoment', 'angularUtils.directives.dirPagination']);
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -11,7 +11,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('repo', {
       url: '/repo',
-      templateUrl: 'views/view-repo.html',
+      templateUrl: 'views/repo.html',
       controller: 'homeController'
     })
     .state('login', {
