@@ -42,7 +42,6 @@ angular.module('myApp').controller('logoutController',
           $location.path('/');
         });
     };
-
 }]);
 
 angular.module('myApp').controller('registerController',

@@ -1,9 +1,16 @@
 <div class="site-container container-fluid full-height">
 	<div class="hero-section">
-		<div class="hero-header pull-right">
-			<a ui-sref="login" class="hero-header-btn">Login</a>
-			<!-- <a ng-href="#/register" class="hero-header-btn">Sign Up</a> -->
-			<a ui-sref="repo" class="hero-header-btn">Repository</a>
+		<div class="hero-header pull-right" ng-if="loggedIn==false">
+			<a ui-sref="login" class="hero-header-btn" href="#">Login</a>
+			<a ui-sref="repo" class="hero-header-btn" href="#">Repository</a>
+		</div>
+		<div ng-if="loggedIn==true">
+			<div class="content-header">
+				<div ng-controller="logoutController" class="pull-right">
+					<a ng-click="logout()" href="#"> Logout</a>
+				</div>
+				<p class="pull-right">Logged in as {{currentUser.username}}</p>
+			</div>
 		</div>
 		<div class="hero-content text-center">
 			<img src="/images/logo.png" alt="logo">
