@@ -2,11 +2,12 @@ angular.module('myApp').controller('homeController',
   ['$scope', '$http', '$location', 'FetchService', 'AuthService', 
   function ($scope, $http, $location, FetchService, AuthService) {
 
+	//Check if user is logged in
   	if(AuthService.isLoggedIn()){
   		$scope.loggedIn = true;
-  		debugger;
-		activate();
-      	function activate() {
+  		
+		fetchUser();
+      	function fetchUser() {
         	FetchService
       		.getUser()
           	.then(function(){
