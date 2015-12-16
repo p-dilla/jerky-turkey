@@ -21,26 +21,6 @@ router.post('/create', function(req, res, next) {
   });
 });
 
-//get all ==================================
-router.get('/findall', function(req, res) {
-  List.find(function(err, lists){
-    if(err)
-      res.send(err);
-
-    res.json(lists);
-  });
-});
-
-//get single ==================================
-router.get('/find/:list_id', function(req, res) {
-  List.findById(req.params.list_id, function(err, list){
-    if(err)
-      res.send(err);
-
-    res.json(list);
-  });
-});
-
 //update ==================================
 router.put('/update/:list_id', function(req, res) {
   List.findById(req.params.list_id, function(err, list){
@@ -68,15 +48,6 @@ router.delete('/delete/:list_id', function(req, res) {
 
     res.json({message: 'List has been removed!'});
   });
-});
-
-//get by user ref ==================================****
-router.get('/findby/:createdBy', function(req, res) {
-  if (req.params.createdBy) {
-    List.find({ createdBy: req.params.createdBy }, function (err, lists) {
-        res.json(lists);
-    });
-  }
 });
 
 module.exports = router;

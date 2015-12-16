@@ -24,26 +24,6 @@ router.post('/create', function(req, res, next) {
   });
 });
 
-//get all ==================================
-router.get('/findall', function(req, res) {
-  Project.find(function(err, projects){
-    if(err)
-      res.send(err);
-
-    res.json(projects);
-  });
-});
-
-//get single ==================================
-router.get('/find/:project_id', function(req, res) {
-  Project.findById(req.params.project_id, function(err, project){
-    if(err)
-      res.send(err);
-
-    res.json(project);
-  });
-});
-
 //update ==================================
 router.put('/update/:project_id', function(req, res) {
   Project.findById(req.params.project_id, function(err, project){
@@ -74,15 +54,6 @@ router.delete('/delete/:project_id', function(req, res) {
 
     res.json({message: 'Project has been removed!'});
   });
-});
-
-//get by user ==================================****
-router.get('/findby/:createdBy', function(req, res) {
-  if (req.params.createdBy) {
-    Project.find({ createdBy: req.params.createdBy }, function (err, projects) {
-        res.json(projects);
-    });
-  }
 });
 
 module.exports = router;

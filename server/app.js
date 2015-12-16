@@ -5,6 +5,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     expressSession = require('express-session'),
     mongoose = require('mongoose'),
+    jwt    = require('jsonwebtoken'),
     hash = require('bcrypt-nodejs'),
     path = require('path'),
     passport = require('passport'),
@@ -25,6 +26,7 @@ var userRoutes = require('./routes/user.js');
 var linkRoutes = require('./routes/weblink.js');
 var projectRoutes = require('./routes/project.js');
 var listRoutes = require('./routes/list.js');
+var searchRoutes = require('./routes/search.js');
 
 // define middleware
 app.use(express.static(path.join(__dirname, '../client')));
@@ -54,6 +56,7 @@ app.use('/user/', userRoutes);
 app.use('/link/', linkRoutes);
 app.use('/project/', projectRoutes);
 app.use('/list/', listRoutes);
+app.use('/search/', searchRoutes);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));

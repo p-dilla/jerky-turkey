@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('passport');
+    passport = require('passport'),
+    jwt    = require('jsonwebtoken'),
     User = require('../models/user.js');
 
 //register ==================================
@@ -24,6 +25,7 @@ router.post('/register', function(req, res) {
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
+      console.log(err);
       return res.status(500).json({err: err});
     }
     if (!user) {
@@ -33,8 +35,12 @@ router.post('/login', function(req, res, next) {
       if (err) {
         return res.status(500).json({err: 'Could not log in user'});
       }
-      res.status(200).json({status: 'Login successful!'});
+
+      //create token
+      var token = jwt.sign({foo : 'bar'}, 'secret');
+      res.status(200).json({status: 'Login successful!',  token: token});
     });
+    
   })(req, res, next);
 });
 
