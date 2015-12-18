@@ -1,10 +1,10 @@
 angular.module('myApp').controller('linkController',
   ['$scope', '$http', '$location', '$stateParams', 'FetchService', 'EditService', 'moment',
   function ($scope, $http, $location, $stateParams, FetchService, EditService, moment) {
-    console.log($location.path());
+    
     if($location.path() !== '/dashboard/add-link'){
       activate();
-      //RETRIEVE==============
+      //RETRIEVE==========================
       function activate() {
         FetchService
           .getLink($stateParams._id)
@@ -16,17 +16,17 @@ angular.module('myApp').controller('linkController',
       }
     }
 
-    //UPDATE==========
+    //UPDATE==============================
     $scope.updateLink = function(link) {
         EditService.updateLink(link);
       };
 
-    //DELETE=========   
+    //DELETE==============================   
     $scope.deleteLink = function(link) {
         EditService.deleteLink(link);
       };
 
-    //CREATE==================
+    //CREATE==============================
     $scope.addLink = function(link) {
         FetchService.getUser()
           .then(function() {

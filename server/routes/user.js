@@ -24,6 +24,7 @@ router.post('/register', function(req, res) {
 //login ========================================
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
+
     if (err) {
       console.log(err);
       return res.status(500).json({err: err});
@@ -38,7 +39,7 @@ router.post('/login', function(req, res, next) {
 
       //create token
       var token = jwt.sign({foo : 'bar'}, 'secret');
-      res.status(200).json({status: 'Login successful!',  token: token});
+      res.status(200).json({status: 'Login successful!', token: token});
     });
     
   })(req, res, next);
