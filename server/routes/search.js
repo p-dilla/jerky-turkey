@@ -4,6 +4,8 @@ var express = require('express'),
     List = require('../models/list.js'),
     Project = require('../models/project.js');
 
+
+
 //LINK=======================================
 //get all ==================================
 router.get('/link/findall', function(req, res) {
@@ -27,6 +29,7 @@ router.get('/link/find/:weblink_id', function(req, res) {
 
 //get by user ==================================
 router.get('/link/findby/:createdBy', function(req, res) {
+  console.log(req.body.token);
   if (req.params.createdBy) {
     Weblink.find({ createdBy: req.params.createdBy }, function (err, weblinks) {
         res.json(weblinks);

@@ -1,6 +1,19 @@
-var myApp = angular.module('myApp', ['ui.router', 'angularMoment', 'angularUtils.directives.dirPagination']);
+var myApp = angular.module('myApp', ['ui.router', 'angularMoment', 'angularUtils.directives.dirPagination', 'angular-jwt']);
 
-myApp.config(function ($stateProvider, $urlRouterProvider) {
+myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'jwtInterceptorProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, jwtInterceptorProvider) {
+
+  jwtInterceptorProvider.tokenGetter = function() {
+
+      var tokenJson = localStorage.getItem('token');
+      // var plainObj;
+      // if(tokenJson) {
+      //   tokenJson = JSON.parse(tokenJson);
+      //   plainObj = tokenJson.token;
+      // }
+      return tokenJson;
+    };
+
+  $httpProvider.interceptors.push('jwtInterceptor');
 
   $urlRouterProvider.otherwise('/');  
   $stateProvider
@@ -108,13 +121,6 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/dashboard.item-project.html',
       controller: 'projectController'
     })
-});
 
-// myApp.run(function ($rootScope, $location, $route, AuthService) {
-//   $rootScope.$on('$routeChangeStart', function (event, next, current) {
-//     if (next.access.restricted && AuthService.isLoggedIn() === false) {
-//       $location.path('/login');
-//       $route.reload();
-//     }
-//   });
-// });
+}]);
+

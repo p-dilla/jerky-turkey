@@ -37,6 +37,7 @@ angular.module('myApp').factory('AuthService',
         .success(function (data, status) {
           if(status === 200 && data.status){
             user = true;
+            localStorage.setItem('token', data.token);
             deferred.resolve();
           } else {
             user = false;
