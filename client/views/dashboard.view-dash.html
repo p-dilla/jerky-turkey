@@ -8,6 +8,9 @@
           <th></th>
           <th></th>
         </tr>
+        <tr ng-show="!userLinks.length">
+          <td> <div class="well text-center">No Links Added</div> </td>
+        </tr>
         <tr dir-paginate="l in userLinks | orderBy:'-dateAdded' | itemsPerPage: 5" pagination-id="link">
           <td>
             <a href="#" ui-sref="dashboard.view-link({_id: l._id})">{{l.linkName}}</a>
@@ -19,7 +22,7 @@
             <a href="http://{{l.url}}">Visit</a>
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.delete-link({_id: l._id})" ><img src="/images/delete-icon.png" alt="delete"></a>
+            <a href="#" ui-sref="dashboard.delete-link({_id: l._id})"><img src="/images/delete-icon.png" alt="delete"></a>
           </td>
         </tr>
       </table>
@@ -34,6 +37,9 @@
           <th></th>
           <th></th>
         </tr>
+        <tr ng-show="!userLists.length">
+          <td> <div class="well text-center">No Lists Added</div> </td>
+        </tr>
         <tr dir-paginate="l in userLists | orderBy:'-dateAdded' | itemsPerPage: 5" pagination-id="list">
           <td>
             <a href="#" ui-sref="dashboard.view-list({_id: l._id})">{{l.listName}}</a>
@@ -45,7 +51,7 @@
             <a href="#" ui-sref="dashboard.add-item-list({_id: l._id})"><img src="/images/add-icon.png" alt="add"></a>
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.delete-list({_id: l._id})" ><img src="/images/delete-icon.png" alt="delete"></a>
+            <a href="#" ui-sref="dashboard.delete-list({_id: l._id})"><img src="/images/delete-icon.png" alt="delete"></a>
           </td>
         </tr>
       </table>
@@ -60,6 +66,9 @@
           <th></th>
           <th></th>
         </tr>
+        <tr ng-show="!userProjects.length">
+          <td> <div class="well text-center">No Projects Added</div> </td>
+        </tr>
         <tr dir-paginate="p in userProjects | orderBy:'-dateAdded' | itemsPerPage: 5" pagination-id="project">
           <td>
             <a href="#" ui-sref="dashboard.view-project({_id: p._id})">{{p.projectTitle}}</a>
@@ -71,7 +80,7 @@
             <a href="#" ui-sref="dashboard.add-item-project({_id: p._id})"><img src="/images/add-icon.png" alt="add"></a>
           </td>
           <td>
-            <a href="#" ui-sref="dashboard.delete-project({_id: p._id})" ><img src="/images/delete-icon.png" alt="delete"></a>
+            <a href="#" ui-sref="dashboard.delete-project({_id: p._id})"><img src="/images/delete-icon.png" alt="delete"></a>
           </td>
         </tr>
       </table>

@@ -64,6 +64,8 @@ angular.module('myApp').factory('AuthService',
         // handle success
         .success(function (data) {
           user = false;
+          //clear token
+          localStorage.setItem('token', 'null');
           deferred.resolve();
         })
         // handle error
@@ -91,6 +93,7 @@ angular.module('myApp').factory('AuthService',
             deferred.reject();
           }
         })
+        
         // handle error
         .error(function (data) {
           deferred.reject();

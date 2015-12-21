@@ -16,6 +16,8 @@ router.post('/register', function(req, res) {
       return res.status(500).json({err: err});
     }
     passport.authenticate('local')(req, res, function () {
+      //create token
+      var token = jwt.sign({foo : 'bar'}, 'secret');
       return res.status(200).json({status: 'Registration successful!'});
     });
   });
